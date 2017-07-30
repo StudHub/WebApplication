@@ -1,0 +1,154 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site2.master.cs" Inherits="WebApplication4.Site2" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+     <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="js/bootstrap.js" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+             <div class="row">
+  <div class="col-md-3" style="background-color:black">
+      <img src="images/logo.png" style="width:250px;height:190px; margin-left: 103px;"/>
+    
+  </div>
+        <div class="col-md-6" style="background-color:black;height:190px">.col-md-2</div>
+      
+        <div class="col-md-1" style="background-color:black;height:190px"">
+            <a href="#" style=" top: 2px; height: 25px;"><h3>
+          <span class="glyphicon glyphicon-user" style="top:50px" ></span></h3>
+        </a>
+            </div>
+  <div class="col-md-1" style="background-color:black;height:190px">
+      <a href="#" style=" top: 2px; height: 25px;"><h3>
+          <span class="glyphicon glyphicon-globe" style="top:50px" >14</span></h3>
+        </a>
+  </div>
+         <div class="col-md-1" style="background-color:black;height:190px">
+            <a href="#" style=" top: 2px; height: 25px;"><h3>
+          <span class="glyphicon glyphicon-log-out" style="top:50px" ></span></h3>
+        </a>
+            </div>
+</div>
+<div class="row">
+  <div class="col-md-2"style ="border-width: medium; border-color: #003366; background-color:#000000; border-right-style: solid;border-top-style:solid">
+      <div class="row">
+          <div class="col-md-2"style ="border-width: medium; border-color: #003366; background-color:#000000;">
+               <asp:Image ID="Image1" runat="server" BorderColor="#0033CC" BorderStyle="Solid" BorderWidth="4px" CssClass="img-circle" Height="150px" ImageUrl="~/images/01.jpg" Width="150px" ImageAlign="TextTop" />
+          </div>
+          
+      </div>
+      <div class="row" style="width:200px">
+         <div class="col-md-2" style="background-color:black;border-width: thin medium thin thin; border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid; width:260px;">
+       <a href="#"><h5>
+          <span class="glyphicon glyphicon-home" style="top:4px;left:20px" >&nbsp Home</span></h5>
+             
+
+       </a>
+  </div>
+ 
+      </div>
+       <div class="row" style="width:200px">
+         <div class="col-md-2" style="background-color:black;border-width: thin medium;border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid; width:260px;">
+       <a href="#"><h5>
+          <span class="glyphicon glyphicon-user" style="top:4px;left:20px" >&nbsp Profile</span></h5>
+             
+
+       </a>
+  </div>
+ 
+      </div>
+ <div class="row" style="width:200px">
+         <div class="col-md-2" style="background-color:black;border-width: thin medium;border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid; width:260px;">
+       <a href="#"><h5>
+          <span class="glyphicon glyphicon-book" style="top:4px;left:20px" >&nbsp Study</span></h5>
+             
+
+       </a>
+  </div>
+ 
+      </div>
+ <div class="row" style="width:200px">
+         <div class="col-md-2" style="background-color:black;border-width: thin medium;border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid; width:260px;">
+       <a href="#"><h5>
+          <span class="glyphicon glyphicon-collapse-up" style="top:4px;left:20px" >&nbsp Post MCQ</span></h5>
+             
+
+       </a>
+  </div>
+ 
+      </div>
+ <div class="row" style="width:200px">
+         <div class="col-md-2" style="background-color:black;border-width: thin medium;border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid; width:260px;">
+       <a href="#"><h5>
+          <span class="glyphicon glyphicon-open" style="top:4px;left:20px" >&nbsp Post Query</span></h5>
+             
+
+       </a>
+  </div>
+ 
+      </div>
+ <div class="row" style="width:200px">
+         <div class="col-md-2" style="background-color:black;border-width: thin medium;border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid; width:260px;">
+       <a href="#"><h5>
+          <span class="glyphicon glyphicon-tasks" style="top:4px;left:20px" >&nbsp Test</span></h5>
+             
+
+       </a>
+  </div>
+ 
+      </div>
+ <div class="row" style="width:200px">
+         <div class="col-md-2" style="background-color:black;border-width: thin medium;border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid; width:260px;">
+       <a href="#"><h5>
+          <span class="glyphicon glyphicon-globe" style="top:4px;left:20px" >&nbsp Notifications</span></h5>
+             
+
+       </a>
+  </div>
+ 
+      </div>
+       <div class="row" style="width:200px">
+         <div class="col-md-2" style="background-color:black;border-width: thin medium;border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid; width:260px;">
+       <a href="#"><h5>
+          <span class="glyphicon glyphicon-check" style="top:4px;left:20px" >&nbsp Results</span></h5>
+             
+
+       </a>
+  </div>
+ 
+      </div>
+       <div class="row" style="width:200px">
+         <div class="col-md-2" style="background-color:black;border-width: thin medium;border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid; width:260px;">
+       <a href="#"><h5>
+          <span class="glyphicon glyphicon-log-out" style="top:4px;left:20px" >&nbsp Logout</span></h5>
+             
+
+       </a>
+  </div>
+ 
+      </div>
+
+
+
+  </div>
+    <div class="col-md-10">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+    </div>
+    </div>
+
+           
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
