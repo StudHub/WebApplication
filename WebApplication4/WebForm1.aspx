@@ -83,7 +83,7 @@
 												<div class="clearfix"> </div>
 											</div>  
 											<div class="w3ls-submit"> 
-												<input type="submit" value="LOGIN" onclick="window.open('second page/index.html');">  	
+												<input type="submit" value="LOGIN" onclick="window.open('WebForm6.aspx');">  	
 											</div>	
 										</form>
 

@@ -12,15 +12,15 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body style="background-image:url(images/bg.jpg)" >
     <form id="form1" runat="server">
         <div>
              <div class="row">
-  <div class="col-md-3" style="background-color:black">
+  <div class="col-md-3" style="background-color:black;border-bottom-color:#003366">
       <img src="images/logo.png" style="width:250px;height:190px; margin-left: 103px;"/>
     
   </div>
-        <div class="col-md-6" style="background-color:black;height:190px">.col-md-2</div>
+        <div class="col-md-6" style="background-color:black;height:190px; border-bottom-color:#003366"></div>
       
         <div class="col-md-1" style="background-color:black;height:190px"">
             <a href="#" style=" top: 2px; height: 25px;"><h3>
@@ -42,13 +42,13 @@
   <div class="col-md-2"style ="border-width: medium; border-color: #003366; background-color:#000000; border-right-style: solid;border-top-style:solid">
       <div class="row">
           <div class="col-md-2"style ="border-width: medium; border-color: #003366; background-color:#000000;">
-               <asp:Image ID="Image1" runat="server" BorderColor="#0033CC" BorderStyle="Solid" BorderWidth="4px" CssClass="img-circle" Height="150px" ImageUrl="~/images/01.jpg" Width="150px" ImageAlign="TextTop" />
+               <asp:Image ID="Image1" runat="server" BorderColor="#0033CC" BorderStyle="Solid" BorderWidth="4px" CssClass="img-circle" Height="150px" ImageUrl="~/images/u2.jpg" Width="150px" ImageAlign="TextTop" />
           </div>
           
       </div>
       <div class="row" style="width:200px">
          <div class="col-md-2" style="background-color:black;border-width: thin medium thin thin; border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid; width:260px;">
-       <a href="#"><h5>
+       <a href="#" class="active" ><h5>
           <span class="glyphicon glyphicon-home" style="top:4px;left:20px" >&nbsp Home</span></h5>
              
 
