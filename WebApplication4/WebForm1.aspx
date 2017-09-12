@@ -51,7 +51,7 @@
 		</div>
 			</div>
 		
-            <img src="images/logo.png" />
+            <img src="images/logo1.png" />
 		<div class="clearfix"> </div>
 		
 		</section>
@@ -69,7 +69,7 @@
 										<h5>Login</h5>
 										<form action="#" method="post" id="form1">
 											<input type="email" class="email" name="Email" placeholder="Email" required=""/>
-											<input type="password" class="password" name="Password" placeholder="Password" required=""/>
+											<input type="password" class="password" name="Password" placeholder="Password" required=""/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 											<div class="wthree-text"> 
 												<ul> 
 													<li>
@@ -109,7 +109,16 @@
 											<input type="text" name="Username" placeholder="Username" required=""/>
 											<input type="email"  name="Email" placeholder="Email" required=""/>
 											<input type="password" name="Password" placeholder="Password" required=""/>
-											<div class="wthree-text"> 
+                                            <input type="text" name="Contact No." placeholder="Contact No." />
+                                            Gender:  <input type="radio" group="G" name="gender" value="Male" checked /> Male  <input type="radio" name="gender" value="Female" /> Female<br /><br />
+                                            Birthday <input type="date" group="G" name="birthday"/><br /><br />
+                                            Subjects Of Interest : <br /><br />
+                                            C/C++  <input type="checkbox" name="SOI" value="C/C++"/>
+                                            Java  <input type="checkbox" name="SOI"  value="Java"/>
+											Python  <input type="checkbox" name="SOI"  value="Python"/>
+                                            DAA  <input type="checkbox" name="SOI"  value="DAA"/>
+                                            TOC  <input type="checkbox" name="SOI"  value="TOC"/><br /><br/>
+                                            <div class="wthree-text"> 
 												<ul> 
 													<li>
 														<label class="anim">
