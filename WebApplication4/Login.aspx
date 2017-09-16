@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebApplication4.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebApplication4.WebForm1" %>
 
 <!DOCTYPE html>
 
@@ -40,10 +40,10 @@
 		<section class="header-w3ls"> 
 			
 			<div class="contact-bnr-w3-agile">
-				<ul>
-					<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">studhub@gmail.com</a></li>
+				<!--<ul>
+					<li><i class="fa fa-envelope" aria-hidden="true"></i>studhub@gmail.com</li>
 					<li><i class="fa fa-phone" aria-hidden="true"></i>+91(100)222-0-33</li>	
-				</ul>
+				</ul>-->
 				
 		<div class="bottons-agileits-w3layouts">
 			<a class="page-scroll" href="#myModal2" data-toggle="modal"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</a>.
@@ -83,7 +83,7 @@
 												<div class="clearfix"> </div>
 											</div>  
 											<div class="w3ls-submit"> 
-												<input type="submit" value="LOGIN" onclick="window.open('WebForm6.aspx');">  	
+												<input type="submit" value="LOGIN" onclick="window.open('Profile.aspx','_self');">  	
 											</div>	
 										</form>
 
@@ -106,9 +106,18 @@
 										<div class="agileits-login">
 										<h5>Register</h5>
 										<form action="#" method="post">
-											<input type="text" name="Username" placeholder="Username" required=""/>
-											<input type="email"  name="Email" placeholder="Email" required=""/>
-											<input type="password" name="Password" placeholder="Password" required=""/>
+                                            <input type="text" name="Name" placeholder="Name" required="required"/>
+											<input type="text" name="Username" placeholder="Username" required="required"/>
+											<input type="email"  name="Email" placeholder="Email" required="required"/>
+											<input type="password" name="Password" placeholder="Password" required="required"/>
+                                            Country: <select name="Country">
+                                                <option value="India">India</option>
+                                                <option value="USA">USA</option>
+                                                <option value="UK">UK</option>
+                                                <option value="China">China</option>
+                                                <option value="Japan">Japan</option>
+                                                <option value="Russia">Russia</option>
+                                            </select>
                                             <input type="text" name="Contact No." placeholder="Contact No." />
                                             Gender:  <input type="radio" group="G" name="gender" value="Male" checked /> Male  <input type="radio" name="gender" value="Female" /> Female<br /><br />
                                             Birthday <input type="date" group="G" name="birthday"/><br /><br />
@@ -130,7 +139,7 @@
 												<div class="clearfix"> </div>
 											</div>  
 											<div class="w3ls-submit"> 
-												<input type="submit" value="Register" onclick="window.open('second page/index.html');">  	
+												<input type="submit" value="Register" onclick="window.open('Profile.aspx','_self');">  	
 											</div>	
 										</form>
 
@@ -205,31 +214,7 @@
 		<div class="clearfix"> </div>
 	
 </div>
-<!-- //about -->
-<!-- services -->
-	
-<!-- //services -->
-<!-- team -->
-	<!-- //team -->
-<!--News-->
-  
 
-<!--//News-->
-<!-- Modal1 -->
-						
-<!-- //Modal1 -->
-<!-- Modal4 -->
-						
-<!-- //Modal4 -->
-<!-- Modal5 -->
-						
-<!-- //Modal5 -->
-<!-- Modal6 -->
-						
-<!-- //Modal6 -->
-<!-- Modal7 -->
-						
-<!-- //Modal7 -->
 <!-- Gallery -->
 <div id="gallery" class="gallery">  
 		<div class="container">
@@ -240,7 +225,7 @@
 		<div class="agileinfo-gallery-row">
 			<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
 				<a href="images/01.png" class="imghvr-hinge-right figure">
-					<img src="images/01.png" alt="" title="Spa Sublime Image"/> 
+					<img src="images/01.png" alt="" title="Create your network."> 
 					<div class="agile-figcaption">
 					<h4>Student Network</h4>
 					    <p>Connections just a click away.</p>
@@ -249,7 +234,7 @@
 			</div> 
 			<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
 				<a href="images/02.jpg" class="imghvr-hinge-right figure">
-					<img src="images/02.jpg" alt="" title="Spa Sublime Image"/> 
+					<img src="images/02.jpg" alt="" title="Get your doubts solved."/> 
 					<div class="agile-figcaption">
 					<h4>Dubious?</h4>
 					   <p>Ask your query here.</p>
@@ -258,7 +243,7 @@
 			</div>
 			<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
 				<a href="images/03.jpg" class="imghvr-hinge-right figure">
-					<img src="images/03.jpg" alt="" title="Spa Sublime Image"/> 
+					<img src="images/03.jpg" alt="" title=""/> 
 					<div class="agile-figcaption">
 					<h4>Synced yet?</h4>
 					   <p>Remain up-to-date on all your interests.</p>
@@ -267,7 +252,7 @@
 			</div>
 			<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
 				<a href="images/04.jpg" class="imghvr-hinge-right figure">
-					<img src="images/04.jpg" alt="" title="Spa Sublime Image"/> 
+					<img src="images/04.jpg" alt=""/> 
 					<div class="agile-figcaption">
 					<h4>Stud indeed huh?</h4>
 					   <p>Test your cognizance here.</p>
@@ -326,16 +311,36 @@
 			</div>
 		</div>
 	</div>
-<!-- //testimonials -->
-<!-- contact -->
-	
-	<!-- //contact -->
-<!-- Map -->
-
-<!-- //Map -->
-<!-- footer -->
-
-<!-- //footer -->
+<!--Contact -->
+    	<div id="contact" class="contact">
+		<div class="container">
+			<div class="title-main-w3ls">
+				<h3 class="title-w3-agile"><span>C</span>ontact <span>U</span>s</h3>
+			</div>
+			<div class="contact-info">
+				<ul>
+					<li><i class="fa fa-location-arrow" aria-hidden="true"></i><h5>Address<span>Aegertweg 4, 8305, India</span></h5></li>
+					<li><i class="fa fa-phone" aria-hidden="true"></i><h5>Call Us<span>+91 1122334455</span></h5></li>
+					<li><i class="fa fa-envelope-o" aria-hidden="true"></i><h5>Mail Us<span>studhub@gmail.com</span></h5></li>
+				</ul>
+			</div>
+			<div class="contact-w3ls-row">
+				<form action="#" method="post">
+					<div class="col-md-5 col-sm-5 contact-right agileits-w3layouts">
+						<textarea name="Message" placeholder="Message" required=""></textarea>
+					</div>
+					<div class="col-md-7 col-sm-7 contact-left agileits-w3layouts">
+						<input type="text" name="First Name" placeholder="First Name" required="">
+						<input class="email" name="Last Name" type="text" placeholder="Last Name" required="">
+						<input type="text" name="Number" placeholder="Mobile Number" required="">
+						<input class="email" name="Email" type="email" placeholder="Email" required="">
+						<input type="submit" value="SUBMIT">
+					</div> 
+					<div class="clearfix"> </div> 
+				</form>
+			</div>  
+		</div>
+	</div>
 <!-- js -->
 <script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
 <!-- //js -->
@@ -444,5 +449,6 @@
 
         </div>
     </form>
+
 </body>
 </html>

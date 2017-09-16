@@ -11,7 +11,7 @@ namespace WebApplication4
 {
 
 
-    public partial class Profile
+    public partial class Profile1
     {
 
         /// <summary>
