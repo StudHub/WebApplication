@@ -74,7 +74,7 @@
 												<ul> 
 													<li>
 														<label class="anim">
-															<input type="checkbox" class="checkbox">
+															<input type="checkbox" class="checkbox"/>
 															<span> Remember me ?</span> 
 														</label> 
 													</li>
@@ -83,7 +83,7 @@
 												<div class="clearfix"> </div>
 											</div>  
 											<div class="w3ls-submit"> 
-												<input type="submit" value="LOGIN" onclick="window.open('Profile.aspx','_self');">  	
+												<input type="submit" value="LOGIN" onclick="window.open('Home.aspx','_self');"/>  	
 											</div>	
 										</form>
 
@@ -119,7 +119,7 @@
                                                 <option value="Russia">Russia</option>
                                             </select>
                                             <input type="text" name="Contact No." placeholder="Contact No." />
-                                            Gender:  <input type="radio" group="G" name="gender" value="Male" checked /> Male  <input type="radio" name="gender" value="Female" /> Female<br /><br />
+                                            Gender:  <input type="radio" group="G" name="gender" value="Male" checked="checked" /> Male  <input type="radio" name="gender" value="Female" /> Female<br /><br />
                                             Birthday <input type="date" group="G" name="birthday"/><br /><br />
                                             Subjects Of Interest : <br /><br />
                                             C/C++  <input type="checkbox" name="SOI" value="C/C++"/>
@@ -131,7 +131,7 @@
 												<ul> 
 													<li>
 														<label class="anim">
-															<input type="checkbox" class="checkbox">
+															<input type="checkbox" class="checkbox/">
 															<span> I accept the terms of use</span> 
 														</label> 
 													</li>
@@ -139,7 +139,7 @@
 												<div class="clearfix"> </div>
 											</div>  
 											<div class="w3ls-submit"> 
-												<input type="submit" value="Register" onclick="window.open('Profile.aspx','_self');">  	
+												<input type="submit" value="Register" onclick="window.open('Home.aspx','_self');">  	
 											</div>	
 										</form>
 
@@ -225,7 +225,7 @@
 		<div class="agileinfo-gallery-row">
 			<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
 				<a href="images/01.png" class="imghvr-hinge-right figure">
-					<img src="images/01.png" alt="" title="Create your network."> 
+					<img src="images/01.png" alt="" title="Create your network."/> 
 					<div class="agile-figcaption">
 					<h4>Student Network</h4>
 					    <p>Connections just a click away.</p>
