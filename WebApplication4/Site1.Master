@@ -5,138 +5,85 @@
 <html>
 <head runat="server">
     <title></title>
-      <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/bootstrap-theme.css" rel="stylesheet" />
-    <link href="js/bootstrap.js" rel="stylesheet" />
-
+      <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css"/>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+body {
+    background-size:cover;
+    background-image:url("images/bg.jpg");
+}
+</style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body class="w3-theme-l5">
     <form id="form1" runat="server">
         <div>
-             <div class="row">
-  <div class="col-md-3" style="background-color:black">
-      <img src="images/logo.png" style="width:250px;height:190px; margin-left: 103px;"/>
-    
+        
+            <!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="Home.aspx" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><img src="images/logo2.png" title="Home" width="95" height="35" /></a>
+  
+  <a href="Profile.aspx" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="My Profile"><i class="fa fa-user"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Tests"><i class="fa fa-calendar"></i></a>   
+  <!--<a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>-->
+  <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-padding-large"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+      <a href="#" class="w3-bar-item w3-button">One new friend request</a>
+      <a href="#" class="w3-bar-item w3-button">John Doe posted on your wall</a>
+      <a href="#" class="w3-bar-item w3-button">Jane likes your post</a>
+    </div>
   </div>
-        <div class="col-md-6" style="background-color:black;height:190px">.col-md-2</div>
-      
-        <div class="col-md-1" style="background-color:black;height:190px"">
-            <a href="#" style=" top: 2px; height: 25px;"><h3>
-          <span class="glyphicon glyphicon-user" style="top:50px" ></span></h3>
-        </a>
-            </div>
-  <div class="col-md-1" style="background-color:black;height:190px">
-      <a href="#" style=" top: 2px; height: 25px;"><h3>
-          <span class="glyphicon glyphicon-globe" style="top:50px" >14</span></h3>
-        </a>
-  </div>
-         <div class="col-md-1" style="background-color:black;height:190px">
-            <a href="#" style=" top: 2px; height: 25px;"><h3>
-          <span class="glyphicon glyphicon-log-out" style="top:50px" ></span></h3>
-        </a>
-            </div>
+  <a href="Login.aspx" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Log Out"><i class="fa fa-circle-o-notch"></i></a>
+ </div>
 </div>
-<div class="row">
-  <div class="col-md-2"style ="border-width: medium; border-color: #003366; background-color:#000000; border-right-style: solid;border-top-style:solid">
-      <asp:Image ID="Image1" runat="server" BorderColor="#0033CC" BorderStyle="Solid" BorderWidth="4px" CssClass="img-circle" Height="150px" ImageUrl="~/images/01.jpg" Width="150px" ImageAlign="TextTop" />
-  </div>
-    <div class="col-md-10">
-    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+</div>
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+      
+    <!-- Middle Column -->
+    <div class="w3-col m12">
+    
+      <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card-2 w3-round w3-white">
+            <div class="w3-container w3-padding">
+                <img src="images/u3.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">1 min</span>
+        <h4>Username</h4><br>
+              <h6 class="w3-opacity">Social Media template by w3.css</h6>
+              <p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p>
+
+              <button type="button"  class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post</button> 
+            </div>
+          </div>
         </div>
-  </div>
-        <div class="row">
-  <div class="col-md-2" style="background-color:black;border-width: thin;border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid;">
-       <a href="#"><h5>
-          <span class="glyphicon glyphicon-home" style="top:4px;left:20px" >&nbsp Home</span></h5>
-             
-
-       </a>
-  </div>
-  </div>
-<div class="row">
-  <div class="col-md-2" style="background-color:black;border-width: thin;border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid;">
-       <a href="#"><h5>
-          <span class="glyphicon glyphicon-user" style="top:4px;left:20px" >&nbsp Profile</span></h5>
-             
-
-       </a>
-  </div>
-  </div>
-<div class="row">
-  <div class="col-md-2" style="background-color:black;border-width: thin;border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid;">
-       <a href="#"><h5>
-          <span class="glyphicon glyphicon-book" style="top:4px;left:20px" >&nbsp Study</span></h5>
-             
-
-       </a>
-  </div>
-  </div><div class="row">
-  <div class="col-md-2" style="background-color:black;border-width: thin;border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid;">
-       <a href="#"><h5>
-          <span class="glyphicon glyphicon-collapse-up" style="top:4px;left:20px" >&nbsp Post MCQ</span></h5>
-             
-
-       </a>
-  </div>
-  </div>
-        <div class="row">
-  <div class="col-md-2" style="background-color:black;border-width: thin;border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid;">
-       <a href="#"><h5>
-          <span class="glyphicon glyphicon-open" style="top:4px;left:20px" >&nbsp Post Query</span></h5>
-             
-
-       </a>
-  </div>
-  </div>
-        <div class="row">
-  <div class="col-md-2" style="background-color:black;border-width: thin;border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid;">
-       <a href="#"><h5>
-          <span class="glyphicon glyphicon-tasks" style="top:4px;left:20px" >&nbsp Test</span></h5>
-             
-
-       </a>
-  </div>
-  </div>
-        <div class="row">
-  <div class="col-md-2" style="background-color:black;border-width: thin;border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid;">
-       <a href="#"><h5>
-          <span class="glyphicon glyphicon-globe" style="top:4px;left:20px" >&nbsp Notifications</span></h5>
-             
-
-       </a>
-  </div>
-  </div>
-        <div class="row">
-  <div class="col-md-2" style="background-color:black;border-width: thin;border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid;">
-       <a href="#"><h5>
-          <span class="glyphicon glyphicon-check" style="top:4px;left:20px" >&nbsp Results</span></h5>
-             
-
-       </a>
-  </div>
-  </div>
-        <div class="row">
-  <div class="col-md-2" style="background-color:black;border-width: thin;border-color: #003366;border-right-style: solid;border-top-style: solid;border-bottom-style:solid;">
-       <a href="#"><h5>
-          <span class="glyphicon glyphicon-log-out" style="top:4px;left:20px" >&nbsp Log Out</span></h5>
-             
-
-       </a>
-  </div>
-  </div>
-        <div class="row">
-  <div class="col-md-2" style="background-color:black;border-width: thin;border-color: #003366;height:50px;border-right-style: solid;border-top-style: solid;border-bottom-style:solid;">
-       
-  </div>
-  </div>
-
-           
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+      </div>
+            
         </div>
+      </div>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>    
+    
     </form>
 </body>
 </html>
