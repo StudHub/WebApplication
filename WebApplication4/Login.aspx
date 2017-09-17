@@ -32,7 +32,9 @@
 
 </head>
     <body class="bg">
+    
     <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
         <div>
           
 <div class="banner-w3layouts" id="home">
@@ -62,34 +64,28 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-				</div> 
-				<div class="modal-body login-page "><!-- login-page -->     
+				</div>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+    	<div class="modal-body login-page ">
+           
+        <!-- login-page -->     
 									<div class="login-top sign-top">
 										<div class="agileits-login">
 										<h5>Login</h5>
-										<form action="#" method="post" id="form1">
-											<input type="email" class="email" name="Email" placeholder="Email" required=""/>
-											<input type="password" class="password" name="Password" placeholder="Password" required=""/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<div class="wthree-text"> 
-												<ul> 
-													<li>
-														<label class="anim">
-															<input type="checkbox" class="checkbox"/>
-															<span> Remember me ?</span> 
-														</label> 
-													</li>
-													<li> <a href="#">Forgot password?</a> </li>
-												</ul>
-												<div class="clearfix"> </div>
-											</div>  
-											<div class="w3ls-submit"> 
-												<input type="submit" value="LOGIN" onclick="window.open('Home.aspx','_self');"/>  	
+											<asp:TextBox ID="emailid"  runat="server" placeholder="Email id"></asp:TextBox>
+											<asp:TextBox ID="password" placeholder="Password" runat="server" TextMode="Password"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<asp:Label ID="error" runat="server" Text="Email id or Password not match" ForeColor="Red" Visible="false"></asp:Label>
+											<div class="w3ls-submit">
+                                            <asp:Button ID="submit" runat="server" Text="Login" OnClick="submit_Click"  />
+												
 											</div>	
-										</form>
 
 										</div>  
 									</div>
-						</div>  
+						</div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
 				</div> <!-- //login-page -->
 			</div>
 		</div>
@@ -105,33 +101,39 @@
 									<div class="login-top sign-top">
 										<div class="agileits-login">
 										<h5>Register</h5>
-										<form action="#" method="post">
-                                            <input type="text" name="Name" placeholder="Name" required="required"/>
-											<input type="text" name="Username" placeholder="Username" required="required"/>
-											<input type="email"  name="Email" placeholder="Email" required="required"/>
-											<input type="password" name="Password" placeholder="Password" required="required"/>
-                                            Country: <select name="Country">
-                                                <option value="India">India</option>
-                                                <option value="USA">USA</option>
-                                                <option value="UK">UK</option>
-                                                <option value="China">China</option>
-                                                <option value="Japan">Japan</option>
-                                                <option value="Russia">Russia</option>
-                                            </select>
-                                            <input type="text" name="Contact No." placeholder="Contact No." />
-                                            Gender:  <input type="radio" group="G" name="gender" value="Male" checked="checked" /> Male  <input type="radio" name="gender" value="Female" /> Female<br /><br />
-                                            Birthday <input type="date" group="G" name="birthday"/><br /><br />
+                                            
+                                           <asp:TextBox ID="name" placeholder="Name" runat="server"></asp:TextBox>
+											
+											<asp:TextBox ID="remailid" placeholder="Email ID" runat="server"></asp:TextBox>
+											<asp:TextBox ID="rpassword" placeholder="Password" runat="server"></asp:TextBox>
+                                            Country:&nbsp
+                                           <asp:DropDownList ID="country" runat="server">
+                                               <asp:ListItem>India</asp:ListItem>
+                                               <asp:ListItem>USA</asp:ListItem>
+                                               <asp:ListItem>China</asp:ListItem>
+                                               <asp:ListItem>Japan</asp:ListItem>
+
+                                               <asp:ListItem>Russia</asp:ListItem>
+                                           </asp:DropDownList>
+                                           <asp:TextBox ID="contactno"  placeholder="ContactNo" runat="server"></asp:TextBox>
+                                            <asp:RadioButton ID="male"  Checked="true" GroupName="gender" runat="server" />&nbsp Male
+                                            <asp:RadioButton ID="female" GroupName="gender" runat="server" />&nbsp Female
+                                            <asp:TextBox ID="dob" runat="server" placeholder="dd/mm/yy"></asp:TextBox>
+
+                                            
                                             Subjects Of Interest : <br /><br />
-                                            C/C++  <input type="checkbox" name="SOI" value="C/C++"/>
-                                            Java  <input type="checkbox" name="SOI"  value="Java"/>
-											Python  <input type="checkbox" name="SOI"  value="Python"/>
-                                            DAA  <input type="checkbox" name="SOI"  value="DAA"/>
-                                            TOC  <input type="checkbox" name="SOI"  value="TOC"/><br /><br/>
+                                            <asp:CheckBoxList ID="cl" runat="server">
+                                                <asp:ListItem  >DATA STRUCTURE</asp:ListItem>
+                                                <asp:ListItem>DBMS</asp:ListItem>
+                                                <asp:ListItem>TOC</asp:ListItem>
+                                                <asp:ListItem>OS</asp:ListItem>
+                                                <asp:ListItem>NETWORK</asp:ListItem>
+                                            </asp:CheckBoxList>
                                             <div class="wthree-text"> 
 												<ul> 
 													<li>
 														<label class="anim">
-															<input type="checkbox" class="checkbox/">
+															<input type="checkbox" class="checkbox">
 															<span> I accept the terms of use</span> 
 														</label> 
 													</li>
@@ -139,9 +141,9 @@
 												<div class="clearfix"> </div>
 											</div>  
 											<div class="w3ls-submit"> 
-												<input type="submit" value="Register" onclick="window.open('Home.aspx','_self');">  	
+												<asp:Button ID="register" runat="server" Text="Register"  OnClick="reg_Click"/>
 											</div>	
-										</form>
+									
 
 										</div>  
 									</div>
@@ -192,156 +194,7 @@
 			<div class="clearfix"> </div>
       </div>
 </div>
-<!-- //banner -->
-<!-- about -->
-<div class="about" id="about">
-	<div class="container">
-		<div class="about-top-agileits-w3layouts">
-			<div class="col-md-4 about-left-w3-agileits">
-				<div class="title-main-w3ls">
-					<h3 class="title-w3-agile"><span>A</span>bout <span>U</span>s</h3>
-				</div>
-			</div>
-			<div class="col-md-8 about-right-w3-agileits">
-				<h3>We offer a medium to channelize and harness your subjects of interest.</h3>
-				<p class="w3_agileits_para">We provide access to our variety of forums and networks of savants to sharpen, scrutinize and ponder what you have never asked before. We work constantly to provide you smooth, faster and efficient working environment. With constant effort from our side, and mutual uderstanding and positive feedback from the user side, we assure to provide the most favorable experience one can ask for.</p>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-		
-		
-		<div class="clearfix"> </div>
-	
-</div>
-
-<!-- Gallery -->
-<div id="gallery" class="gallery">  
-		<div class="container">
-			<div class="title-main-w3ls">
-				<h3 class="title-w3-agile"><span>F</span>orums & <span>S</span>ervices</h3>
-			</div>
-		</div>
-		<div class="agileinfo-gallery-row">
-			<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
-				<a href="images/01.png" class="imghvr-hinge-right figure">
-					<img src="images/01.png" alt="" title="Create your network."/> 
-					<div class="agile-figcaption">
-					<h4>Student Network</h4>
-					    <p>Connections just a click away.</p>
-					</div>
-				</a> 
-			</div> 
-			<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
-				<a href="images/02.jpg" class="imghvr-hinge-right figure">
-					<img src="images/02.jpg" alt="" title="Get your doubts solved."/> 
-					<div class="agile-figcaption">
-					<h4>Dubious?</h4>
-					   <p>Ask your query here.</p>
-					</div>
-				</a> 
-			</div>
-			<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
-				<a href="images/03.jpg" class="imghvr-hinge-right figure">
-					<img src="images/03.jpg" alt="" title=""/> 
-					<div class="agile-figcaption">
-					<h4>Synced yet?</h4>
-					   <p>Remain up-to-date on all your interests.</p>
-					</div>
-				</a> 
-			</div>
-			<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
-				<a href="images/04.jpg" class="imghvr-hinge-right figure">
-					<img src="images/04.jpg" alt=""/> 
-					<div class="agile-figcaption">
-					<h4>Stud indeed huh?</h4>
-					   <p>Test your cognizance here.</p>
-					</div>
-				</a> 
-			</div>
-			<div class="clearfix"> </div>
-			
-		</div> 
-	</div>
-<!-- //Gallery -->
-<!-- testimonials -->
-	<div class="testimonials">
-		<div class="container">
-		<div class="title-main-w3ls">
-				<h3 class="title-w3-agile"><span>U</span><font color="white">ser</font> <span>R</span><font color="white">eviews</font></h3>
-			</div>
-			<div class="w3_agileits_testimonial_grids">
-				<section class="slider">
-					<div class="flexslider">
-						<ul class="slides">
-							<li>
-								<div class="w3_agileits_testimonial_grid">
-									<div class="test-bg-w3ls">
-
-										<h4><font color=#fd0006>Rutvik Shah </font> </h4>
-										
-                                        <p><font color="white">"The network build over this platform is very productive and object-oriented indeed."</font></p>
-									</div>
-									<img src="images/u1.jpg" alt=" " class="img-responsive" />
-									
-								</div>
-							</li>
-							<li>
-								<div class="w3_agileits_testimonial_grid">
-									<div class="test-bg-w3ls">
-										<h4><font color=#fd0006>Manish Prajapati </font> </h4>
-										<p><font color="white">"I can always get new ideas and implement them that i find over here."</font></p>
-									</div>
-									<img src="images/u2.jpg" alt=" " class="img-responsive" />
-								</div>
-							</li>
-							<li>
-								<div class="w3_agileits_testimonial_grid">
-									<div class="test-bg-w3ls">
-										<h4><font color=#fd0006>Shivang Mistry </font> </h4>
-										<p><font color="white">"I find the QnA section very useful as all of my doubts are answered in the most comprehensible manner."</font></p>
-									</div>
-									<img src="images/u3.jpg" alt=" " class="img-responsive" />
-									
-								</div>
-							</li>
-						</ul>
-					</div>
-				</section>
-			</div>
-		</div>
-	</div>
-<!--Contact -->
-    	<div id="contact" class="contact">
-		<div class="container">
-			<div class="title-main-w3ls">
-				<h3 class="title-w3-agile"><span>C</span>ontact <span>U</span>s</h3>
-			</div>
-			<div class="contact-info">
-				<ul>
-					<li><i class="fa fa-location-arrow" aria-hidden="true"></i><h5>Address<span>Aegertweg 4, 8305, India</span></h5></li>
-					<li><i class="fa fa-phone" aria-hidden="true"></i><h5>Call Us<span>+91 1122334455</span></h5></li>
-					<li><i class="fa fa-envelope-o" aria-hidden="true"></i><h5>Mail Us<span>studhub@gmail.com</span></h5></li>
-				</ul>
-			</div>
-			<div class="contact-w3ls-row">
-				<form action="#" method="post">
-					<div class="col-md-5 col-sm-5 contact-right agileits-w3layouts">
-						<textarea name="Message" placeholder="Message" required=""></textarea>
-					</div>
-					<div class="col-md-7 col-sm-7 contact-left agileits-w3layouts">
-						<input type="text" name="First Name" placeholder="First Name" required="">
-						<input class="email" name="Last Name" type="text" placeholder="Last Name" required="">
-						<input type="text" name="Number" placeholder="Mobile Number" required="">
-						<input class="email" name="Email" type="email" placeholder="Email" required="">
-						<input type="submit" value="SUBMIT">
-					</div> 
-					<div class="clearfix"> </div> 
-				</form>
-			</div>  
-		</div>
-	</div>
-<!-- js -->
+            <!-- js -->
 <script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
 <!-- //js -->
 <!-- Calendar -->
