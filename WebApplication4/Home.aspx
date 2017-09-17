@@ -63,7 +63,7 @@ body {
         <h4>Username</h4><br>
               <h6 class="w3-opacity">Social Media template by w3.css</h6>
               <p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p>
-              <button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post</button> 
+             <a href="post.aspx"><button type="button" class="w3-button w3-theme"  ><i class="fa fa-pencil"></i>  Post</button> </a> 
             </div>
           </div>
         </div>

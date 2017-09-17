@@ -1,6 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="post.aspx.cs" Inherits="WebApplication4.WebForm3" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-     <link href="css/bootstrap.css" rel="stylesheet" />
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebApplication10.WebForm1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/bootstrap-theme.css" rel="stylesheet" />
     <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -90,10 +95,10 @@
         }
         
     </script>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
-      <div>
+</head>
+<body>
+    <form id="form1" runat="server">
+<div>
         <div>
            <h3 style="font-weight: bold" class="auto-style1">Create Post</h3> 
                <h4 class="auto-style2">Select what would like to post</h4>
@@ -110,7 +115,6 @@
   <div id="query" class="tab-pane fade in active" style="padding-left: 195px;">
       <textarea id="TextArea1" rows="10" class="tab-pane" placeholder="Enter question text here" role="toolbar" style="width: 670px;"></textarea>
       <div class="active" style="margin-right: 0px; margin-left: 60%">
-          <br />
       <asp:Button ID="Button1" runat="server" Text="Add Image" CssClass="btn" BackColor="#003366" ForeColor="White"  /> &nbsp&nbsp&nbsp
       <asp:Button ID="Button2" runat="server" Text="Next" CssClass="btn" BackColor="#003366" ForeColor="White"  />
           
@@ -142,6 +146,7 @@
   
 </div>
     </div>
-       <br />
-       </div>
-</asp:Content>
+        
+    </form>
+</body>
+</html>
