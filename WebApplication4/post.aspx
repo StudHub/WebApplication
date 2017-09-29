@@ -134,6 +134,9 @@
    
   <div id="mcq"  class="tab-pane fade  "style="padding-left: 195px;" >
      <textarea id="TextArea2" runat="server" rows="10" class="tab-pane" placeholder="Enter your question or query here" role="toolbar" style="width: 670px;"></textarea>
+      <asp:FileUpload ID="FileUpload1" runat="server" />
+     
+      <asp:Label ID="Label1" runat="server" Text="Label" visible="false"></asp:Label>
       
         <!--<div class="input-group" style="margin-top:2%">
             
@@ -153,11 +156,10 @@
       
       <div  class="active" id="div1" style="margin-right: 0px; margin-left: 60% " runat="server">
        
-          <input id="Button11" type="button" value="button5" onclick="create()"/>
+          <input id="Button11" type="button" value="Add Option" class="btn" style="background:#003366;color:white" onclick="create()"/>
           
        &nbsp&nbsp&nbsp 
-      <asp:Button ID="Button3" runat="server" Text="Add Image" CssClass="btn" BackColor="#003366" ForeColor="White"/> &nbsp&nbsp&nbsp
-      <asp:Button ID="Button4" runat="server" Text="Next" CssClass="btn" BackColor="#003366" ForeColor="White"  OnClick="Post" />
+      <asp:Button ID="Button4" runat="server" Text="Post" CssClass="btn" BackColor="#003366" ForeColor="White"  OnClick="Post" />
           </div>
   </div>
              

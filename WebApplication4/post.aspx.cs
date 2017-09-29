@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Web.Script.Serialization;
 using System.Data.Sql;
 using System.Data;
+using System.IO;
 using System.Data.SqlClient;
 using System.Configuration;
 
@@ -20,67 +21,76 @@ namespace WebApplication4
         protected void Post(object sender, EventArgs e)
         {
             string[] textboxValues = Request.Form.GetValues("DynamicTextBox");
-           // JavaScriptSerializer serializer = new JavaScriptSerializer();
-            ///this.Values = serializer.Serialize(textboxValues);
             string message = "";
-            
-            
-            
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["studhub"].ConnectionString);
+
+
             foreach (string textboxValue in textboxValues)
             {
                 char s = Convert.ToChar(x);
                 message +=s+"."+textboxValue;
                 x++;
             }
-            
-            //ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "alert('" + message + "');", true);
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["studhub"].ConnectionString);
-            con.Open();
-            SqlCommand s1 =new SqlCommand("insert into Post_MCQ(mcq,options) values(@mcq,@options)",con);
-            //  SqlCommand s2 = new SqlCommand("inser into Post_MCQ_option(option_id,mcq_id,option) values(@option_id,@mcq_id,@option", con);
-            SqlCommand s2 = con.CreateCommand();
-            s2.CommandText = "SET IDENTITY_INSERT Post_MCQ ON";
-          //  s1.Parameters.AddWithValue("@mcq_id", i);
-            s1.Parameters.AddWithValue("@mcq", TextArea2.InnerText);
-            s1.Parameters.AddWithValue("@options",message);
-            i++;
-           s1.ExecuteNonQuery();
-            
-            con.Close();
 
+            
+            
+            con.Open();
+                      
+            
+           
+            if (FileUpload1.HasFile)
+            {
+                Response.Write("helee");
+                //SqlCommand s3 = new SqlCommand("select mcq_id from Post_MCQ", con);
+                //int id = Convert.ToInt32(s3.ExecuteReader()[0]);
+                string strname = FileUpload1.FileName.ToString();
+                Directory.CreateDirectory(Server.MapPath("~") + "\\upload");
+                Response.Write(strname);
+                FileUpload1.PostedFile.SaveAs(Server.MapPath("~/upload/") + strname);
+                SqlCommand s1 = new SqlCommand("insert into Post_MCQ(mcq,options,image)  values(@mcq,@options,' " + strname + " ')", con);
+                SqlCommand s2 = con.CreateCommand();
+                s2.CommandText = "SET IDENTITY_INSERT Post_MCQ ON";
+
+                s1.Parameters.AddWithValue("@mcq", TextArea2.InnerText);
+                s1.Parameters.AddWithValue("@options", message);
+
+
+                s1.ExecuteNonQuery();
+                con.Close();
+
+                Label1.Visible = true;
+                Label1.Text = "Image Uploaded successfully";
+                //txtname.Text = "";
+            }
+            else
+            {
+                SqlCommand s1 = new SqlCommand("insert into Post_MCQ(mcq,options) values(@mcq,@options)", con);
+
+                SqlCommand s2 = con.CreateCommand();
+                s2.CommandText = "SET IDENTITY_INSERT Post_MCQ ON";
+
+                s1.Parameters.AddWithValue("@mcq", TextArea2.InnerText);
+                s1.Parameters.AddWithValue("@options", message);
+                i++;
+
+                s1.ExecuteNonQuery();
+                con.Close();
+
+            }
 
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            //TextBox3.Text = HiddenField1.Value;
-             
+           
+
+
+
         }
-      
+
+        
+
+
        
-        /* protected void Button5_Click(object sender, EventArgs e)
- {
-
-
-     string c = "input-group-addon";
-     HtmlGenericControl s = new HtmlGenericControl("span");
-     HtmlGenericControl d = new HtmlGenericControl("div");
-     d.Attributes.Add("style", "padding-top:100px");
-     d.Attributes.Add("class", "input-group");
-     d.Attributes.Add("id", i.ToString());
-     s.Attributes.Add("text","abc");
-     s.Attributes.Add("class",c);
-     s.Attributes.Add("id", i.ToString());
-     s.InnerText = "Z";
-     p1.Controls.Add(d);
-
-     TextBox t = new TextBox();
-     t.ID = i.ToString();
-     t.Attributes.Add("placeholder", "option");
-     t.Text = t.ID;
-     d.Controls.Add(s);
-     d.Controls.Add(t);
-
-     i++;
- }*/
     }
 }
