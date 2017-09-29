@@ -7,13 +7,15 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.Script.Serialization;
 using System.Data.Sql;
+using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
 namespace WebApplication4
 {
     public partial class WebForm3 : System.Web.UI.Page
-    { static int i = 0;
+    { static int i = 1;
+        static int x = 65;
         protected string Values;
         protected void Post(object sender, EventArgs e)
         {
@@ -21,18 +23,29 @@ namespace WebApplication4
            // JavaScriptSerializer serializer = new JavaScriptSerializer();
             ///this.Values = serializer.Serialize(textboxValues);
             string message = "";
+            
+            
+            
             foreach (string textboxValue in textboxValues)
             {
-                message += textboxValue + "\\n";
+                char s = Convert.ToChar(x);
+                message +=s+"."+textboxValue;
+                x++;
             }
+            
             //ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "alert('" + message + "');", true);
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["studhub"].ConnectionString);
             con.Open();
-            SqlCommand s1 =new SqlCommand("insert into Post_MCQ(que_id,question) values(i,@question)",con);
-          
-            s1.Parameters.AddWithValue("@question", TextArea2.InnerText);
+            SqlCommand s1 =new SqlCommand("insert into Post_MCQ(mcq,options) values(@mcq,@options)",con);
+            //  SqlCommand s2 = new SqlCommand("inser into Post_MCQ_option(option_id,mcq_id,option) values(@option_id,@mcq_id,@option", con);
+            SqlCommand s2 = con.CreateCommand();
+            s2.CommandText = "SET IDENTITY_INSERT Post_MCQ ON";
+          //  s1.Parameters.AddWithValue("@mcq_id", i);
+            s1.Parameters.AddWithValue("@mcq", TextArea2.InnerText);
+            s1.Parameters.AddWithValue("@options",message);
             i++;
-            s1.ExecuteNonQuery();
+           s1.ExecuteNonQuery();
+            
             con.Close();
 
 
