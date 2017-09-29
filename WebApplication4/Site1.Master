@@ -22,7 +22,7 @@ body {
     </asp:ContentPlaceHolder>
 </head>
 <body class="w3-theme-l5">
-    <form id="form1" runat="server">
+    
         <div>
         
             <!-- Navbar -->
@@ -84,6 +84,6 @@ body {
     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>    
     
-    </form>
+    
 </body>
 </html>
