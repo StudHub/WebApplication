@@ -123,11 +123,12 @@
           
   <div class="tab-content">
   <div id="query" class="tab-pane fade in active" style="padding-left: 195px;">
-      <textarea id="TextArea1" rows="10" class="tab-pane" placeholder="Enter question text here" role="toolbar" style="width: 670px;"></textarea>
+      <textarea id="TextArea1" runat="server" rows="10" class="tab-pane" placeholder="Enter question text here" role="toolbar" style="width: 670px;"></textarea>
+      <asp:FileUpload ID="FileUpload2" runat="server" />
       <div class="active" style="margin-right: 0px; margin-left: 60%">
           <br />
-      <asp:Button ID="Button1" runat="server" Text="Add Image" CssClass="btn" BackColor="#003366" ForeColor="White"  /> &nbsp&nbsp&nbsp
-      <asp:Button ID="Button2" runat="server" Text="Next" CssClass="btn" BackColor="#003366" ForeColor="White"  />
+          
+      <asp:Button ID="Button2" runat="server" Text="Post" CssClass="btn" BackColor="#003366" ForeColor="White" OnClick="Button2_Click"  />
           
           </div>
   </div>

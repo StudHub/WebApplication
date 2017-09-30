@@ -16,7 +16,7 @@ namespace WebApplication4
 {
     public partial class WebForm3 : System.Web.UI.Page
     { static int i = 1;
-        static int x = 65;
+        int x = 65;
         protected string Values;
         protected void Post(object sender, EventArgs e)
         {
@@ -28,9 +28,10 @@ namespace WebApplication4
             foreach (string textboxValue in textboxValues)
             {
                 char s = Convert.ToChar(x);
-                message +=s+"."+textboxValue;
+                message +="option"+s+":"+textboxValue+"\n";
                 x++;
             }
+
 
             
             
@@ -40,12 +41,12 @@ namespace WebApplication4
            
             if (FileUpload1.HasFile)
             {
-                Response.Write("helee");
+               // Response.Write("helee");
                 //SqlCommand s3 = new SqlCommand("select mcq_id from Post_MCQ", con);
                 //int id = Convert.ToInt32(s3.ExecuteReader()[0]);
                 string strname = FileUpload1.FileName.ToString();
-                Directory.CreateDirectory(Server.MapPath("~") + "\\upload");
-                Response.Write(strname);
+                //Directory.CreateDirectory(Server.MapPath("~") + "\\upload");
+               // Response.Write(strname);
                 FileUpload1.PostedFile.SaveAs(Server.MapPath("~/upload/") + strname);
                 SqlCommand s1 = new SqlCommand("insert into Post_MCQ(mcq,options,image)  values(@mcq,@options,' " + strname + " ')", con);
                 SqlCommand s2 = con.CreateCommand();
@@ -60,7 +61,8 @@ namespace WebApplication4
 
                 Label1.Visible = true;
                 Label1.Text = "Image Uploaded successfully";
-                //txtname.Text = "";
+                Response.Redirect("Home.aspx");
+               
             }
             else
             {
@@ -74,7 +76,11 @@ namespace WebApplication4
                 i++;
 
                 s1.ExecuteNonQuery();
+
+            
                 con.Close();
+                Response.Redirect("Home.aspx");
+
 
             }
 
@@ -88,9 +94,48 @@ namespace WebApplication4
 
         }
 
-        
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["studhub"].ConnectionString);
+            con.Open();
+                 if (FileUpload2.HasFile)
+            {
+                Response.Write("helee");
+                //SqlCommand s3 = new SqlCommand("select mcq_id from Post_MCQ", con);
+                //int id = Convert.ToInt32(s3.ExecuteReader()[0]);
+                string strname = FileUpload2.FileName.ToString();
+                
+                FileUpload2.PostedFile.SaveAs(Server.MapPath("~/upload/") + strname);
+                SqlCommand s1 = new SqlCommand("insert into Post_Query(query,image)  values(@query,' " + strname + " ')", con);
+                SqlCommand s2 = con.CreateCommand();
+                s2.CommandText = "SET IDENTITY_INSERT Post_Query ON";
+
+                s1.Parameters.AddWithValue("@query", TextArea1.InnerText);
+               
 
 
-       
+                s1.ExecuteNonQuery();
+                con.Close();
+                Response.Redirect("Home.aspx");
+
+
+
+            }
+            else
+            {
+                SqlCommand s1 = new SqlCommand("insert into Post_Query(query) values(@query)", con);
+
+                SqlCommand s2 = con.CreateCommand();
+                s2.CommandText = "SET IDENTITY_INSERT Post_Query ON";
+
+                s1.Parameters.AddWithValue("@query", TextArea1.InnerText);
+                s1.ExecuteNonQuery();
+                con.Close();
+                Response.Redirect("Home.aspx");
+
+
+            }
+
+        }
     }
 }
