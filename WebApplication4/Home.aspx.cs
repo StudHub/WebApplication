@@ -13,7 +13,8 @@ namespace WebApplication4
 {
     public partial class Home : System.Web.UI.Page
     {
-        
+
+        static int cnt = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["studhub"].ConnectionString) ;
@@ -35,7 +36,7 @@ namespace WebApplication4
             }
           
 
-            for (i = 0; i < pst.Length; i++)
+            for (i = pst.Length-1 ; i >=0; i--)
             {
 
 
@@ -52,7 +53,13 @@ namespace WebApplication4
                 i1.CssClass = "w3-left w3-circle w3-margin-right";
                 i1.Width = 60;
                 i1.Height = 60;
-                tc2.Text = "<h3>jashvant";
+                string semailid = (string)Session["emailid"];
+                SqlDataAdapter s2 = new SqlDataAdapter("select name from userr where emailid in(select emailid from Post_MCQ)", con);
+                DataTable dt1=new DataTable();
+                s2.Fill(dt1);
+                
+                tc2.Text= (string)dt1.Rows[cnt]["name"];
+                cnt++;
                 HtmlGenericControl d = new HtmlGenericControl("div");
                 d.ID =Convert.ToString(i);
                 d.Attributes.Add("style", "height:auto;width:90%;margin-left:2%;background-color:sandybrown");

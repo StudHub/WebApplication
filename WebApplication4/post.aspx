@@ -102,7 +102,7 @@
     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <form id="form2" runat="server">
+  
      
        
        <asp:HiddenField ID="HiddenField1" runat="server" />
@@ -169,5 +169,5 @@
     </div>
        <br />
        </div>
-       </form>
+       
 </asp:Content>

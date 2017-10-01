@@ -25,6 +25,7 @@ namespace WebApplication4
         {
             login.Open();
             string em = emailid.Text;
+           
             string pas = password.Text;
             SqlCommand s = new SqlCommand("select password from Login where emailid='" + emailid.Text + "' ", login);
             DataTable dt = new DataTable();
@@ -35,6 +36,7 @@ namespace WebApplication4
             {
                 if (dt.Rows[0]["password"].ToString() == pas)
                 {
+                    Session["emailid"] = em;
                     Response.Redirect("Home.aspx");
 
                 }

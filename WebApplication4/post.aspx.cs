@@ -48,12 +48,13 @@ namespace WebApplication4
                 //Directory.CreateDirectory(Server.MapPath("~") + "\\upload");
                // Response.Write(strname);
                 FileUpload1.PostedFile.SaveAs(Server.MapPath("~/upload/") + strname);
-                SqlCommand s1 = new SqlCommand("insert into Post_MCQ(mcq,options,image)  values(@mcq,@options,' " + strname + " ')", con);
+                SqlCommand s1 = new SqlCommand("insert into Post_MCQ(mcq,options,image,emailid)  values(@mcq,@options,' " + strname + " ',@emailid)", con);
                 SqlCommand s2 = con.CreateCommand();
                 s2.CommandText = "SET IDENTITY_INSERT Post_MCQ ON";
 
                 s1.Parameters.AddWithValue("@mcq", TextArea2.InnerText);
                 s1.Parameters.AddWithValue("@options", message);
+                s1.Parameters.AddWithValue("emailid", Session["emailid"].ToString());
 
 
                 s1.ExecuteNonQuery();
@@ -66,13 +67,14 @@ namespace WebApplication4
             }
             else
             {
-                SqlCommand s1 = new SqlCommand("insert into Post_MCQ(mcq,options) values(@mcq,@options)", con);
+                SqlCommand s1 = new SqlCommand("insert into Post_MCQ(mcq,options,emailid) values(@mcq,@options,@emailid)", con);
 
                 SqlCommand s2 = con.CreateCommand();
                 s2.CommandText = "SET IDENTITY_INSERT Post_MCQ ON";
 
                 s1.Parameters.AddWithValue("@mcq", TextArea2.InnerText);
                 s1.Parameters.AddWithValue("@options", message);
+                s1.Parameters.AddWithValue("emailid", Session["emailid"].ToString());
                 i++;
 
                 s1.ExecuteNonQuery();
