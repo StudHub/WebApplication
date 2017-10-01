@@ -33,9 +33,9 @@ namespace WebApplication4
                 pst[i] = row["mcq"].ToString();
                 i++;
             }
+          
 
-
-           for (i = 0; i < pst.Length; i++)
+            for (i = 0; i < pst.Length; i++)
             {
 
 
@@ -55,7 +55,7 @@ namespace WebApplication4
                 tc2.Text = "<h3>jashvant";
                 HtmlGenericControl d = new HtmlGenericControl("div");
                 d.ID =Convert.ToString(i);
-                d.Attributes.Add("style", "height:auto;width:90%;margin-left:2%;background-color:YELLOW");
+                d.Attributes.Add("style", "height:auto;width:90%;margin-left:2%;background-color:sandybrown");
                 Label l = new Label();
                 l.Text = pst[i];
                 d.Controls.Add(l);
