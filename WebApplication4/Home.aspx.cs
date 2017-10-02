@@ -20,26 +20,32 @@ namespace WebApplication4
         {
              int cnt = 0;
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["studhub"].ConnectionString) ;
-           SqlDataAdapter s1 = new SqlDataAdapter("select mcq from Post_MCQ",con);
+           SqlDataAdapter s1 = new SqlDataAdapter("select mcq,emailid,mcq_id from Post_MCQ",con);
             con.Open();
             
             DataTable dt = new DataTable();
             s1.Fill(dt);
 
             string[] pst = new string[dt.Rows.Count];
-            
+            string[] pstid = new string[dt.Rows.Count];
             int i = 0;
 
             foreach (DataRow row in dt.Rows)
             {
                 
                 pst[i] = row["mcq"].ToString();
+                pstid[i] = row["mcq_id"].ToString();
                 i++;
             }
           
 
             for (i = pst.Length-1 ; i >=0; i--)
+
             {
+                HtmlGenericControl d1 = new HtmlGenericControl("div");
+                //d1.ID = Convert.ToString(i + 1);
+                d1.Attributes.Add("style", "height:auto;margin-top:2%;background-color:white;");
+
 
 
                 //post image and name
@@ -51,25 +57,55 @@ namespace WebApplication4
                 t.Rows.Add(tr);
                 tr.Cells.Add(tc1);
                 tr.Cells.Add(tc2);
+                t.CellSpacing = 10;
                 Image i1 = new Image();
                 i1.CssClass = "w3-left w3-circle w3-margin-right";
                
-                i1.Width = 40;
-                i1.Height = 40;
+                i1.Width = 80;
+                i1.Height = 80;
                 string semailid = (string)Session["emailid"];
-                SqlDataAdapter s2 = new SqlDataAdapter("select name,image from userr where emailid in(select emailid from Post_MCQ)", con);
+                SqlDataAdapter s2 = new SqlDataAdapter("select name,image from userr where emailid in('"+dt.Rows[i]["emailid"]+"')", con);
                 DataTable dt1=new DataTable();
                 s2.Fill(dt1);
                 int count = 0;
-                tc2.Text= (string)dt1.Rows[cnt]["name"];
+                tc2.Text= "<h3><b>"+(string)dt1.Rows[cnt]["name"];
                 
                 //original post
                 HtmlGenericControl d = new HtmlGenericControl("div");
-                d.ID =Convert.ToString(i);
-                d.Attributes.Add("style", "height:auto;width:90%;margin-left:5%;background-color:sandybrown;margin-top:15px");
+               // d.ID =Convert.ToString(i);
+                d.Attributes.Add("style", "height:auto;width:75%;margin-left:10%;background-color:lightblue;margin-top:0px");
                 Label l = new Label();
-                l.Text = pst[i];
+               
+               
+
+                //rearrange question in division
+                string p = pst[i];
+                char[] c = new char[p.Length];
+                c = p.ToCharArray();
+                int j = 0;
+                string x = null;
+                foreach (char c1 in c)
+                {
+                    x = x + c1;
+                    if (j == 110)
+                    {
+                        j = 0;
+                        x = x + "<br>";
+
+                    }
+                    j++;
+                }
+                int a = 65;
+                for (int q = 0; q < 4; q++)
+                {
+
+                    x = x + "<br>";
+                    x = x + " option " + Convert.ToChar(a) + ":" + " " + "options taken from 2darray";
+                    a++;
+                }
+                l.Text = "<b>" + x;
                 d.Controls.Add(l);
+
 
                 //like and comment
 
@@ -80,6 +116,9 @@ namespace WebApplication4
                 b1.CssClass = "w3-button w3-theme-d1 w3-margin-bottom";
                 Button b2 = new Button();
                 b2.Text = "comment";
+                b2.ID = pstid[i].ToString();
+                b2.Click += new EventHandler(btnclk);
+
                 b2.CssClass = "w3-button w3-theme-d1 w3-margin-bottom";
                 Table lt = new Table();
                 
@@ -93,18 +132,30 @@ namespace WebApplication4
                 ltc1.Controls.Add(b1);
                 ltc2.Controls.Add(b2);
                 i1.ImageUrl = "/upload/"+dt1.Rows[cnt]["image"];
-                cnt++;
+                
                 tc1.Controls.Add(i1);
-                ltc1.Attributes.Add("style", "");
+                ltc1.Attributes.Add("style", "width:100px");
 
-                post.Controls.Add(t);
-                post.Controls.Add(d);
-                post.Controls.Add(lt);
-
+                post.Controls.Add(d1);
+                d1.Controls.Add(t);
+                d1.Controls.Add(d);
+                d1.Controls.Add(lt);
             }
             con.Close();
         }
+        //to get which comment button is clicked
+        public void btnclk(object sender, EventArgs e)
+        {
+            
+            Button comment = sender as Button;
+            // identify which button was clicked and perform necessary actions
+            comment.Text = comment.ID;
+            Session["pstid"] = comment.ID;
+            Response.Redirect("webForm-test.aspx");
+            //here button id is post id so, by tracking post id we can get no of comments and comment also
+            //for no of comment take a loop lets 2 cooments are there
 
+        }
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("post.aspx");

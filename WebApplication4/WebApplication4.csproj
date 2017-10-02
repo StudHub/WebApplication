@@ -97,6 +97,7 @@
     <Content Include="upload\01.jpg" />
     <Content Include="upload\02.jpg" />
     <Content Include="upload\2.jpg" />
+    <Content Include="WebForm-test.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="WebForm2.aspx" />
     <Content Include="post.aspx" />
@@ -155,6 +156,13 @@
     </Compile>
     <Compile Include="test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm-test.aspx.cs">
+      <DependentUpon>WebForm-test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm-test.aspx.designer.cs">
+      <DependentUpon>WebForm-test.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
