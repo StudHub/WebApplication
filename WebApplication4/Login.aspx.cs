@@ -68,58 +68,65 @@ namespace WebApplication4
                 gender = "female";
             }
             login.Open();
-            SqlCommand s2 = new SqlCommand("insert into Userr(emailid,name,dob,score,contactno,country,gender) values(@emailid,@name,@dob,@score,@contactno,@country,@gender)", login);
-            s2.Parameters.AddWithValue("@emailid", remailid.Text);
-            s2.Parameters.AddWithValue("@name", name.Text);
-            s2.Parameters.AddWithValue("@dob", Convert.ToDateTime(dob.Text));
-            s2.Parameters.AddWithValue("@score", 0);
-            s2.Parameters.AddWithValue("@contactno ",contactno.Text);
-            s2.Parameters.AddWithValue("@country", country.SelectedItem.Value);
-            s2.Parameters.AddWithValue("@gender",gender);
-            s2.ExecuteNonQuery();
-            
-
-
-            SqlCommand s3 = new SqlCommand("insert into Login(emailid,password) values(@emailid,@password)", login);
-            s3.Parameters.AddWithValue("@emailid", remailid.Text);
-            s3.Parameters.AddWithValue("@password", rpassword.Text);
-            s3.ExecuteNonQuery();
-
-           
-
-            for (int i = 0; i < cl.Items.Count; i++)
+            if (userimage.HasFile)
             {
-                
+                string imagename = userimage.FileName.ToString();
 
-                if (cl.Items[i].Selected)
+                SqlCommand s2 = new SqlCommand("insert into Userr(emailid,name,dob,score,contactno,country,gender,image) values(@emailid,@name,@dob,@score,@contactno,@country,@gender,@image)", login);
+                s2.Parameters.AddWithValue("@emailid", remailid.Text);
+                s2.Parameters.AddWithValue("@name", name.Text);
+                s2.Parameters.AddWithValue("@dob", Convert.ToDateTime(dob.Text));
+                s2.Parameters.AddWithValue("@score", 0);
+                s2.Parameters.AddWithValue("@contactno ", contactno.Text);
+                s2.Parameters.AddWithValue("@country", country.SelectedItem.Value);
+                s2.Parameters.AddWithValue("@gender", gender);
+                s2.Parameters.AddWithValue("@image", imagename);
+
+                s2.ExecuteNonQuery();
+                userimage.PostedFile.SaveAs(Server.MapPath("~/upload/") + imagename);
+
+
+
+                SqlCommand s3 = new SqlCommand("insert into Login(emailid,password) values(@emailid,@password)", login);
+                s3.Parameters.AddWithValue("@emailid", remailid.Text);
+                s3.Parameters.AddWithValue("@password", rpassword.Text);
+                s3.ExecuteNonQuery();
+
+
+
+                for (int i = 0; i < cl.Items.Count; i++)
                 {
-                    
 
-                    String s = cl.Items[i].Text;
-                    SqlCommand s5 = new SqlCommand("select s_id from subjects where s_name = @s", login);
-                    s5.Parameters.AddWithValue("@s", s);
 
-                    DataTable dt = new DataTable();
-                    SqlDataAdapter sda = new SqlDataAdapter(s5);
-                    sda.Fill(dt);
-                    string p="";
-                    if (dt.Rows.Count != 0)
+                    if (cl.Items[i].Selected)
                     {
-                        //Response.Write("in");
-                        p = dt.Rows[0][0].ToString();
-                    }
-                  
-                   SqlCommand s4 = new SqlCommand("insert into sub_of_int(emailid,s_id) values(@emailid,@s_id) ", login);
-                       s4.Parameters.AddWithValue("@emailid", remailid.Text);
+
+
+                        String s = cl.Items[i].Text;
+                        SqlCommand s5 = new SqlCommand("select s_id from subjects where s_name = @s", login);
+                        s5.Parameters.AddWithValue("@s", s);
+
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter sda = new SqlDataAdapter(s5);
+                        sda.Fill(dt);
+                        string p = "";
+                        if (dt.Rows.Count != 0)
+                        {
+                            //Response.Write("in");
+                            p = dt.Rows[0][0].ToString();
+                        }
+
+                        SqlCommand s4 = new SqlCommand("insert into sub_of_int(emailid,s_id) values(@emailid,@s_id) ", login);
+                        s4.Parameters.AddWithValue("@emailid", remailid.Text);
                         s4.Parameters.AddWithValue("@s_id", p);
                         s4.ExecuteNonQuery();
-                   
+                        Response.Redirect("Login.aspx");
+
+                    }
+
                 }
-
             }
-
-            login.Close();
-
+           
         }
 
     }

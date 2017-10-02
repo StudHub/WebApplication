@@ -35,11 +35,9 @@ body {
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Tests"><i class="fa fa-calendar"></i></a>   
   <!--<a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>-->
   <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button w3-padding-large"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></button>     
-    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
-      <a href="#" class="w3-bar-item w3-button">One new friend request</a>
-      <a href="#" class="w3-bar-item w3-button">John Doe posted on your wall</a>
-      <a href="#" class="w3-bar-item w3-button">Jane likes your post</a>
+    <button class="w3-button w3-padding-large" runat="server" id="ntfn"><i class="fa fa-bell"></i></button>     
+    <div id="notification" runat="server" class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+     
     </div>
   </div>
   <a href="Login.aspx" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Log Out"><i class="fa fa-circle-o-notch"></i></a>
@@ -66,14 +64,15 @@ body {
       <div class="w3-row-padding">
         <div class="w3-col m12">
           <div class="w3-card-2 w3-round w3-white">
-            <div class="w3-container w3-padding">
-                <img src="images/u3.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+            <div class="w3-container w3-padding" runat="server">
+                <div id="userpanel" runat="server" style="height:auto">
+        <!--        <img src="images/u3.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
         <span class="w3-right w3-opacity">1 min</span>
-        <h4>Username</h4><br>
-              <h6 class="w3-opacity">Social Media template by w3.css</h6>
-              <p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p>
-                <asp:Button ID="Button1" runat="server" Text="Button"  OnClick="Button1_Click"/> 
+        <h4>Username</h4><br>-->
+                    </div>
 
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
               
             </div>
           </div>

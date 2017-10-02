@@ -99,6 +99,7 @@
 				</div> 
 				<div class="modal-body login-page "><!-- login-page -->     
 									<div class="login-top sign-top">
+                                        
 										<div class="agileits-login">
 										<h5>Register</h5>
                                             
@@ -129,6 +130,9 @@
                                                 <asp:ListItem>OS</asp:ListItem>
                                                 <asp:ListItem>NETWORK</asp:ListItem>
                                             </asp:CheckBoxList>
+                                            Upload your Photo:
+                                            <asp:FileUpload ID="userimage" runat="server" />
+                                            
                                             <div class="wthree-text"> 
 												<ul> 
 													<li>
@@ -136,7 +140,7 @@
 															<input type="checkbox" class="checkbox">
 															<span> I accept the terms of use</span> 
 														</label> 
-													</li>
+													&nbsp;</li>
 												</ul>
 												<div class="clearfix"> </div>
 											</div>  
@@ -145,7 +149,7 @@
 											</div>	
 									
 
-										</div>  
+										</div>
 									</div>
 						</div>  
 				</div> <!-- //login-page -->
@@ -159,7 +163,7 @@
 					<li>
 						<div class="w3layouts-banner-top">
 								<div class="agileits-banner-info">
-									<h3><span>S</span>tudy <span>A</span>nd <span>T</span>est</h3>
+									<h3><span>S>tudy <span>A</span>nd <span>T</span>est</h3>
 									<p>Dedicated to improve the skills of students.</p>
 								</div>	
 						</div>

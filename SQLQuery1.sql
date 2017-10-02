@@ -1,1 +1,1 @@
-﻿insert into Post_MCQ(mcq_id,mcq,options) values(@mcq_id,@mcq,@option)
+﻿select mcq from Post_MCQ
