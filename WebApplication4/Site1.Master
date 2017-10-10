@@ -22,11 +22,7 @@ body {
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <script>
-        function disableBack() { window.history.forward() }
-
-        window.onload = disableBack();
-        </script>
+   
 </head>
 <body class="w3-theme-l5">
  <form id="form1" runat="server">

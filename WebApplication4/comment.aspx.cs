@@ -154,7 +154,7 @@ namespace WebApplication4
             cmmnt.ExecuteNonQuery();
             con.Close();
             comment_text.Text = null;
-            Response.Redirect("Home.aspx");
+            Response.Redirect("Comment.aspx");
         }
 
     }

@@ -78,11 +78,14 @@ namespace WebApplication4
 
                     ncount--;
                 }
+                // Label l1 = new Label();
                 Label l1 = new Label();
-
+               
                 l1.Text = dt1.Rows[0]["name"] + " has posted a mcq";
                 
-                    d.Controls.Add(nimage);
+                d.Focus.
+
+                d.Controls.Add(nimage);
                     d.Controls.Add(l1);
                     notification.Controls.Add(d);
                 
