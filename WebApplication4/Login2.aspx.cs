@@ -8,26 +8,25 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Configuration;
-
 namespace WebApplication4
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class Login2 : System.Web.UI.Page
     {
         SqlConnection login = new SqlConnection(ConfigurationManager.ConnectionStrings["studhub"].ConnectionString);
 
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            Session.Clear();
 
         }
 
         protected void submit_Click(object sender, EventArgs e)
         {
-            
+
             System.Web.UI.ValidationSettings.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.WebForms;
             login.Open();
             string em = emailid.Text;
-           
+
             string pas = password.Text;
             SqlCommand s = new SqlCommand("select password from Login where emailid='" + emailid.Text + "' ", login);
             DataTable dt = new DataTable();
@@ -46,11 +45,11 @@ namespace WebApplication4
                     }
                     else
                     {
-                        Session["admin"]="false";
+                        Session["admin"] = "false";
                     }
-                   
-                        Response.Redirect("Home.aspx");
-                    
+
+                    Response.Redirect("Home.aspx");
+
 
                 }
                 else
@@ -66,7 +65,7 @@ namespace WebApplication4
                 error.Visible = true;
                 // Response.Write("email id or password not matched");
             }
-           
+
 
         }
         protected void reg_Click(object sender, EventArgs e)
@@ -139,8 +138,8 @@ namespace WebApplication4
 
                 }
             }
-           
+
         }
 
-     }
+    }
 }

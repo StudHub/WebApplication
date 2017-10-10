@@ -52,6 +52,30 @@
                 i--;
             }
         }
+      
+        function GetDynamicTextBox( s) {
+
+           
+           return '<span class="input-group-addon">' + s + '</span><input name="DynamicTextBox" placeholder="option" type="text" class="form-control"  style="width: 635px;height:35px;"  /><input type="button" class="btn"  value="Remove" style="background:#003366;color:white" onclick="RemoveTextBox(this)" />'
+             }
+function AddTextBox() {
+    var div = document.createElement('DIV');
+        div.className = "input-group";
+        div.style.marginTop = "2%";
+        var s = String.fromCharCode(x);
+        x++;
+    div.innerHTML = GetDynamicTextBox(s);
+    document.getElementById("option").appendChild(div);
+}
+
+function RemoveTextBox(div) {
+                document.getElementById("option").removeChild(div.parentNode);
+            }
+
+
+  
+
+
         function create() {
             
             var d = document.createElement("div");
@@ -114,15 +138,9 @@
            
             </div>
         <div>
-  <ul class="nav nav-pills" style="margin-left: 191px">
-  <li class="active"><a data-toggle="pill" href="#query" class="auto-style3">Ask a Query</a></li>
-  <li class="auto-style5"><a data-toggle="pill" href="#mcq" class="auto-style4" draggable="true">Post an MCQ</a></li>
-  
-</ul>
             </div>
           
-  <div class="tab-content">
-  <div id="query" class="tab-pane fade in active" style="padding-left: 195px;">
+ <!--  <div id="query" class="tab-pane fade in active" style="padding-left: 195px;">
       <textarea id="TextArea1" runat="server" rows="10" class="tab-pane" placeholder="Enter question text here" role="toolbar" style="width: 670px;"></textarea>
       <asp:FileUpload ID="FileUpload2" runat="server" />
       <div class="active" style="margin-right: 0px; margin-left: 60%">
@@ -131,9 +149,9 @@
       <asp:Button ID="Button2" runat="server" Text="Post" CssClass="btn" BackColor="#003366" ForeColor="White" OnClick="Button2_Click"  />
           
           </div>
-  </div>
+  </div>-->
    
-  <div id="mcq"  class="tab-pane fade  "style="padding-left: 195px;" >
+  <div id="mcq" style="padding-left: 195px;" >
      <textarea id="TextArea2" runat="server" rows="10" class="tab-pane" placeholder="Enter your question or query here" role="toolbar" style="width: 670px;"></textarea>
       <asp:FileUpload ID="FileUpload1" runat="server" />
      
@@ -157,7 +175,7 @@
       
       <div  class="active" id="div1" style="margin-right: 0px; margin-left: 60% " runat="server">
        
-          <input id="Button11" type="button" value="Add Option" class="btn" style="background:#003366;color:white" onclick="create()"/>
+          <input id="Button11" type="button" value="Add Option" class="btn" style="background:#003366;color:white" onclick="AddTextBox()"/>
           
        &nbsp&nbsp&nbsp 
       <asp:Button ID="Button4" runat="server" Text="Post" CssClass="btn" BackColor="#003366" ForeColor="White"  OnClick="Post" />
@@ -165,7 +183,7 @@
   </div>
              
   
-</div>
+
     </div>
        <br />
        </div>

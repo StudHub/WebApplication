@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" UnobtrusiveValidationMode="None" CodeBehind="Login.aspx.cs" Inherits="WebApplication4.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login2.aspx.cs" Inherits="WebApplication4.Login2" %>
 
 <!DOCTYPE html>
 
@@ -48,7 +48,7 @@
 				</ul>-->
 				
 		<div class="bottons-agileits-w3layouts">
-		<a class="page-scroll" href="#myModal2" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true">Login</a>
+			<a href="Home.aspx">Login</a>
 			<a class="page-scroll" href="#myModal3" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Register</a>
 		</div>
 			</div>
@@ -59,11 +59,11 @@
 		</section>
 <!-- //menu -->
 <!-- modal -->
-	<div class="modal about-modal w3-agileits fade" id="myModal2" tabindex="-1" role="dialog">
-		<div class="modal-dialog" role="document">
+	<div class="modal about-modal w3-agileits fade" >
+		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+										
 				</div>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -104,15 +104,12 @@
 										<h5>Register</h5>
                                             
                                            <asp:TextBox ID="name" placeholder="Name" runat="server"></asp:TextBox>
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1"  runat="server" ValidationGroup="register" ErrorMessage="RegularExpressionValidator" ControlToValidate="name"></asp:RegularExpressionValidator>
-                                            
+                            
 											<asp:TextBox ID="remailid" placeholder="Email ID" runat="server"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="register" ErrorMessage="RequiredFieldValidator" ControlToValidate="remailid"></asp:RequiredFieldValidator>
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ValidationGroup="register" ErrorMessage="RegularExpressionValidator" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="remailid"></asp:RegularExpressionValidator>
-                                            
-											<asp:TextBox ID="rpassword" placeholder="Password" runat="server" TextMode="Password"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="register" ErrorMessage="RequiredFieldValidator" ControlToValidate="rpassword"></asp:RequiredFieldValidator>
-                                            
+                            
+                            
+											<asp:TextBox ID="rpassword" placeholder="Password" runat="server"></asp:TextBox>
+                            
                                             <br />
                                             Country:&nbsp
                                            <asp:DropDownList ID="country" runat="server">
@@ -125,13 +122,14 @@
                                            </asp:DropDownList>
 
                                            <asp:TextBox ID="contactno"  placeholder="ContactNo" runat="server"></asp:TextBox>
-                                            <asp:RangeValidator ID="RangeValidator1" runat="server" ValidationGroup="register" ErrorMessage="RangeValidator" MinimumValue="0" MaximumValue="10" ControlToValidate="contactno"></asp:RangeValidator>
+                                           
+                                           
                                             <asp:RadioButton ID="male"  Checked="true" GroupName="gender" runat="server" />&nbsp Male
 
                                             <asp:RadioButton ID="female" GroupName="gender" runat="server" />&nbsp Female
                                             
                                             <asp:TextBox ID="dob" runat="server" placeholder="Date of Birth - dd/mm/yy"></asp:TextBox>
-                                            
+                                           
                                             <br />
                                             Subjects Of Interest : <br /><br />
                                             <asp:CheckBoxList ID="cl" runat="server">
@@ -144,7 +142,7 @@
                                            
                                             Upload your Photo:
                                             <asp:FileUpload ID="userimage" runat="server" />
-                                            
+                                           
                                             <div class="wthree-text"> 
 												<ul> 
 													<li>

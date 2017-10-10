@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="WebForm-test.aspx.cs" Inherits="WebApplication4.WebForm_test" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="comment.aspx.cs" Inherits="WebApplication4.WebForm_test" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
      <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,15 +17,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
 <div class="alert" runat="server" id="main" style=" background-color:white;width:90%;margin-left:60px ; height:auto; margin-top:20px" >
-
-    <table >
+    <div id="p_img_user" runat="server">
+  <!--  <table >
         <tr>
             <td  style="width:150px">&nbsp;<asp:image runat="server" ImageUrl="images/u3.jpg" Height="100px" Width="100px" CssClass="img-circle"></asp:image></td>
             <td>&nbsp;<h1><asp:label runat="server" text="Label"></asp:label></h1></td>
             
         </tr>
        
-    </table>
+    </table>-->
+        </div>
     <hr style="background-color: #2A3A56; border-width: thick" />
      <br />
     

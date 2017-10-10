@@ -18,12 +18,29 @@ body {
     background-image:url("images/bg.jpg");
 }
 </style>
+    
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <script>
+        function disableBack() { window.history.forward() }
+
+        window.onload = disableBack();
+        </script>
 </head>
 <body class="w3-theme-l5">
  <form id="form1" runat="server">
-        <div>
+     
+     
+  <script type="text/javascript">
+
+      function mover() {
+          document.getElementById("HiddenField1").value = "check";
+         
+          document.getElementById("sp1").remove();
+               }
+         </script>
+        
         
             <!-- Navbar -->
 <div class="w3-top">
@@ -31,12 +48,16 @@ body {
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
   <a href="Home.aspx" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><img src="images/logo2.png" title="Home" width="95" height="35" /></a>
   
-  <a href="Profile.aspx" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="My Profile"><i class="fa fa-user"></i></a>
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Tests"><i class="fa fa-calendar"></i></a>   
+  <a href="user_profile.aspx" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="My Profile"><i class="fa fa-user"></i></a>
+  <a id="ch" runat="server" href="select_test.aspx" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Tests"><i class="fa fa-calendar"></i></a>
+  
   <!--<a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>-->
-  <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button w3-padding-large" runat="server" id="ntfn"><i class="fa fa-bell"></i></button>     
-    <div id="notification" runat="server" class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+  <div class="w3-dropdown-hover w3-hide-small" id="divn" runat="server">
+     
+
+      <asp:HiddenField ID="HiddenField1"  Value="uncheck" runat="server" />
+    <button class="w3-button w3-padding-large"   onmouseover="mover()"  runat="server" id="ntfn"><i class="fa fa-bell"></i></button>   
+    <div id="notification" runat="server" class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px;height:200px;overflow-y:scroll" >
      
     </div>
   </div>

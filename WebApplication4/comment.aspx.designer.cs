@@ -10,96 +10,87 @@
 namespace WebApplication4 {
     
     
-    public partial class Site1 {
+    public partial class WebForm_test {
         
         /// <summary>
-        /// head control.
+        /// main control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl main;
         
         /// <summary>
-        /// form1 control.
+        /// p_img_user control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl p_img_user;
         
         /// <summary>
-        /// ch control.
+        /// div1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ch;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div1;
         
         /// <summary>
-        /// divn control.
+        /// l2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divn;
+        protected global::System.Web.UI.WebControls.Label l2;
         
         /// <summary>
-        /// HiddenField1 control.
+        /// comments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl comments;
         
         /// <summary>
-        /// ntfn control.
+        /// Lcomment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton ntfn;
+        protected global::System.Web.UI.WebControls.Label Lcomment;
         
         /// <summary>
-        /// notification control.
+        /// main2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl notification;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl main2;
         
         /// <summary>
-        /// userpanel control.
+        /// comment_text control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userpanel;
+        protected global::System.Web.UI.WebControls.TextBox comment_text;
         
         /// <summary>
-        /// ContentPlaceHolder2 control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder2;
-        
-        /// <summary>
-        /// ContentPlaceHolder1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }

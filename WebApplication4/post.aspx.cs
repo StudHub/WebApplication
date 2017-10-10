@@ -17,19 +17,21 @@ namespace WebApplication4
     public partial class WebForm3 : System.Web.UI.Page
     { static int i = 1;
         int x = 65;
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["studhub"].ConnectionString);
         protected string Values;
         protected void Post(object sender, EventArgs e)
         {
             string[] textboxValues = Request.Form.GetValues("DynamicTextBox");
             string message = "";
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["studhub"].ConnectionString);
-
-
-            foreach (string textboxValue in textboxValues)
+            if (textboxValues != null)
             {
-                char s = Convert.ToChar(x);
-                message +="option"+s+":"+textboxValue+"\n";
-                x++;
+
+                foreach (string textboxValue in textboxValues)
+                {
+                    char s = Convert.ToChar(x);
+                    message += textboxValue + ":";
+                    x++;
+                }
             }
 
 
@@ -58,11 +60,11 @@ namespace WebApplication4
 
 
                 s1.ExecuteNonQuery();
-                con.Close();
+                
 
                 Label1.Visible = true;
                 Label1.Text = "Image Uploaded successfully";
-                Response.Redirect("Home.aspx");
+                
                
             }
             else
@@ -80,11 +82,24 @@ namespace WebApplication4
                 s1.ExecuteNonQuery();
 
             
-                con.Close();
-                Response.Redirect("Home.aspx");
-
+                                
 
             }
+            SqlDataAdapter s3 = new  SqlDataAdapter("select notification,emailid from Userr",con);
+            DataTable dr = new DataTable();
+            s3.Fill(dr);
+            int l_count;
+            for(int q=0;q<dr.Rows.Count;q++)
+            {
+                l_count = Convert.ToInt32(dr.Rows[q]["notification"]);
+                l_count++;
+
+                SqlCommand s12 = new SqlCommand("update Userr set notification = '"+l_count+"'  where emailid in ('"+dr.Rows[q]["emailid"]+"')", con);
+                s12.ExecuteNonQuery();
+            }
+            
+            con.Close();
+            Response.Redirect("Home.aspx");
 
         }
 

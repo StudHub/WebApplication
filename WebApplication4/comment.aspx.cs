@@ -20,6 +20,11 @@ namespace WebApplication4
         {
             con.Open();
 
+            //post image and user name whose post is there
+
+           
+
+//post
             string s;
             SqlCommand cmd = new SqlCommand("select * from Post_MCQ where mcq_id=@s", con);
             cmd.Parameters.AddWithValue("@s", Session["pstid"].ToString() );
@@ -62,11 +67,47 @@ namespace WebApplication4
 
             DataTable dtable = new DataTable();
             sd.Fill(dtable);
-            for(int i = 0; i < dtable.Rows.Count; i++)
+            postimg_user(0);
+            for (int i = 0; i < dtable.Rows.Count; i++)
             {
+                
                 comment(dtable.Rows[i]);
             }
             con.Close();
+        }
+        void postimg_user(int i)
+        {
+            SqlDataAdapter s1 = new SqlDataAdapter("select mcq,emailid,mcq_id from Post_MCQ where mcq_id='" + Session["pstid"] + "' ", con);
+
+
+            DataTable dt = new DataTable();
+            s1.Fill(dt);
+
+
+            Table t = new Table();
+            TableRow tr = new TableRow();
+            TableCell tc1 = new TableCell();
+
+            TableCell tc2 = new TableCell();
+            t.Rows.Add(tr);
+            tr.Cells.Add(tc1);
+            tr.Cells.Add(tc2);
+            t.CellSpacing = 10;
+            Image i1 = new Image();
+            i1.CssClass = "w3-left w3-circle w3-margin-right";
+
+            i1.Width = 80;
+            i1.Height = 80;
+            
+            string semailid = (string)Session["emailid"];
+            SqlDataAdapter s2 = new SqlDataAdapter("select name,image from userr where emailid in('" + dt.Rows[0]["emailid"] + "')", con);
+            DataTable dt1 = new DataTable();
+            s2.Fill(dt1);
+            i1.ImageUrl = "/upload/" + dt1.Rows[0]["image"].ToString();
+            int count = 0;
+            tc2.Text = "<h2><b>" + (string)dt1.Rows[0]["name"];
+            tc1.Controls.Add(i1);
+            p_img_user.Controls.Add(t);
         }
         public void comment(DataRow dr)
         {
@@ -99,7 +140,7 @@ namespace WebApplication4
             Label l2 = new Label();
             c1.Width = 150; //COMMENT FROM COMMENT TABLE    
 
-            l2.Text = dr["comment"].ToString();
+            l2.Text = "<h2>"+dr["comment"].ToString();
            
             c2.Controls.Add(l2);
             main2.Controls.Add(d);
@@ -113,7 +154,7 @@ namespace WebApplication4
             cmmnt.ExecuteNonQuery();
             con.Close();
             comment_text.Text = null;
-            Response.Redirect("WebForm-test.aspx");
+            Response.Redirect("Home.aspx");
         }
 
     }
