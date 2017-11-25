@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication4", "WebApplication4\WebApplication4.csproj", "{6B2DF014-02C8-4EF0-89CE-0AB977A8D67F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F1EBF140-C4EB-42EE-8BF0-8EE8A3693B1F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8A8E8C67-16C9-416E-AD63-A8022251261D}"
 	ProjectSection(SolutionItems) = preProject
-		grant.sql = grant.sql
+		SqlQuery_2.sql = SqlQuery_2.sql
 	EndProjectSection
 EndProject
 Global

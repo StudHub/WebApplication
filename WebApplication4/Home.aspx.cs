@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+
 using System.Data;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -20,7 +21,7 @@ namespace WebApplication4
         {
             
             
-           SqlDataAdapter s1 = new SqlDataAdapter("select mcq,emailid,mcq_id,image from Post_MCQ",con);
+           SqlDataAdapter s1 = new SqlDataAdapter("select mcq,emailid,mcq_id,image,time from Post_MCQ",con);
             con.Open();
             
             DataTable dt = new DataTable();
@@ -28,6 +29,7 @@ namespace WebApplication4
 
             string[] pst = new string[dt.Rows.Count];
             string[] pstid = new string[dt.Rows.Count];
+            string[] img = new string[dt.Rows.Count];
             int i = 0;
 
             foreach (DataRow row in dt.Rows)
@@ -35,6 +37,7 @@ namespace WebApplication4
                 
                 pst[i] = row["mcq"].ToString();
                 pstid[i] = row["mcq_id"].ToString();
+                img[i] = row["image"].ToString();
                 i++;
             }
           
@@ -51,48 +54,81 @@ namespace WebApplication4
                 //post image and name
                 Table t = new Table();
                 TableRow tr = new TableRow();
+                Table t1 = new Table();
+                TableRow tr1 = new TableRow();
+                Table t2 = new Table();
+                TableRow tr2 = new TableRow();
+               
                 TableCell tc1 = new TableCell();
-
                 TableCell tc2 = new TableCell();
+                TableCell tc3 = new TableCell();
+                TableCell tc4 = new TableCell();
+                TableCell tc5 = new TableCell();
+                TableCell tc6 = new TableCell();
                 t.Rows.Add(tr);
+                t1.Rows.Add(tr1);
+                t2.Rows.Add(tr2);
+               // t.Rows.Add(tr3);
                 tr.Cells.Add(tc1);
                 tr.Cells.Add(tc2);
-                t.CellSpacing = 10;
+                tr.Cells.Add(tc3);
+                tr1.Cells.Add(tc4);
+                tr2.Cells.Add(tc5);
+                tr2.Cells.Add(tc6);
+                tc2.Width = 900;
+                tc5.Width = 100;
+
+                // t.CellSpacing = 10;
                 Image i1 = new Image();
                 i1.CssClass = "w3-left w3-circle w3-margin-right";
                
-                i1.Width = 80;
-                i1.Height = 80;
+                i1.Width = 40;
+                i1.Height = 40;
                 string semailid = (string)Session["emailid"];
                 SqlDataAdapter s2 = new SqlDataAdapter("select name,image from userr where emailid in('"+dt.Rows[i]["emailid"]+"')", con);
                 DataTable dt1=new DataTable();
                 s2.Fill(dt1);
                 int count = 0;
-                tc2.Text= "<h3><b>"+(string)dt1.Rows[0]["name"];
+                Label name = new Label();
+                
+                  name.Text=  "<h3><b>" + (string)dt1.Rows[0]["name"] + "</b></h3>";
                 
                 //original post
                 HtmlGenericControl d = new HtmlGenericControl("div");
-               // d.ID =Convert.ToString(i);
-                d.Attributes.Add("style", "height:auto;width:75%;margin-left:10%;background-color:lightblue;margin-top:0px");
+                d.ID =Convert.ToString(i);
+                d.Attributes.Add("style", "height:auto;margin-left:10%;");
                 Label l = new Label();
+                l.ForeColor = System.Drawing.Color.DarkBlue;
+                
+                
+              
+                //options
+                SqlDataAdapter option = new SqlDataAdapter("select options,likes,time from Post_MCQ where mcq_id='" + pstid[i] + "'",con);
+                DataTable optiont = new DataTable() ;
+                option.Fill(optiont);
+                Label time = new Label();
+
+                time.Text = (DateTime.Now - Convert.ToDateTime(optiont.Rows[0]["time"])).Hours.ToString() + " h:";
+                time.Text += (DateTime.Now - Convert.ToDateTime(optiont.Rows[0]["time"])).Minutes.ToString()+" min:";
+                time.Text += (DateTime.Now - Convert.ToDateTime(optiont.Rows[0]["time"])).Seconds.ToString() + " sec ago";
 
 
+
+                time.ForeColor = System.Drawing.Color.Blue;
+                //name.Text += " " + time.Text;
 
                 //if  query image is present
                 if (dt.Rows[i]["image"].ToString() != "0")
                 {
                     Image query_image = new Image();
-                    query_image.ImageUrl = "/upload/" + dt.Rows[i]["image"].ToString();
-                    query_image.Width = 500;
+                    query_image.ImageUrl = "/upload/" + img[i].Trim();
+                    //query_image.ImageUrl = "/upload/p.jpg"; 
+                        query_image.Width = 500;
                     query_image.Height = 100;
                     d.Controls.Add(query_image);
 
                 }
 
-                //options
-                SqlDataAdapter option = new SqlDataAdapter("select options,likes from Post_MCQ where mcq_id='" + pstid[i] + "'",con);
-                DataTable optiont = new DataTable() ;
-                option.Fill(optiont);
                 count = Convert.ToInt32( optiont.Rows[0]["likes"]);
                 string options = optiont.Rows[0]["options"].ToString() ;
                 //rearrange question in division
@@ -100,7 +136,7 @@ namespace WebApplication4
                 char[] c = new char[p.Length];
                 c = p.ToCharArray();
                 int j = 0;
-                string x = "<br>";
+                string x ="<br>";
                 string y = null;
                 foreach (char c1 in c)
                 {
@@ -108,6 +144,7 @@ namespace WebApplication4
                     if (j == 110)
                     {
                         j = 0;
+                       
                         x = x + "<br>";
 
                     }
@@ -115,12 +152,16 @@ namespace WebApplication4
                 }
                     int a = 65;
                     j = 0;
-                    foreach (char c2 in options)
+                x = x + "<br>";
+                Label l2 = new Label();
+                l2.ForeColor = System.Drawing.Color.AliceBlue;
+                foreach (char c2 in options)
                     {
 
                         if (j == 110)
                         {
                             j = 0;
+                       
                             y = y + "<br>";
 
                         }
@@ -129,25 +170,29 @@ namespace WebApplication4
                         {
                             j = 0;
 
-                            x = x + "<br>";
-                            x = x + " option " + Convert.ToChar(a) + ":" + " " + y;
+                            l2.Text +=   "<br>";
+                        l2.Text +=  " option " + Convert.ToChar(a) + ":" + " " + y;
                             y = null;
                         a++;
                         }
                     else 
                         y = y + c2;
                     }
-                
-               /* for (int q = 0; q < 4; q++)
-                {
 
-                    x = x + "<br>";
-                    x = x + " option " + Convert.ToChar(a) + ":" + " " + "options taken from 2darray";
-                    a++;
-                }*/
-                l.Text = "<b>" + x;
+                /* for (int q = 0; q < 4; q++)
+                 {
+
+                     x = x + "<br>";
+                     x = x + " option " + Convert.ToChar(a) + ":" + " " + "options taken from 2darray";
+                     a++;
+                 }*/
+                
+                
+                l.Text = "<b>" + x+l2.Text;
+
                 d.Controls.Add(l);
 
+                
 
                 //like and comment
 
@@ -164,28 +209,31 @@ namespace WebApplication4
                 b2.Text = "comment";
                 b2.ID = pstid[i].ToString();
                 b2.Click += new EventHandler(btnclk);
-
+               
                 b2.CssClass = "w3-button w3-theme-d1 w3-margin-bottom";
-                Table lt = new Table();
+                Label cl = new Label();
+                cl.Text = "&nbsp;&nbsp;&nbsp;";
                 
-                TableRow ltr = new TableRow();
-                TableCell ltc1 = new TableCell();
-                TableCell ltc2 = new TableCell();
                 
-                lt.Rows.Add(ltr);
-                ltr.Cells.Add(ltc1);
-                ltr.Cells.Add(ltc2);
-                ltc1.Controls.Add(b1);
-                ltc2.Controls.Add(b2);
-                i1.ImageUrl = "/upload/"+dt1.Rows[0]["image"];
+                tc5.Controls.Add(b1);
+                tc6.Controls.Add(b2);
+                
+                
+                i1.ImageUrl = "/upload/"+dt1.Rows[0]["image"].ToString().Trim();
                 
                 tc1.Controls.Add(i1);
-                ltc1.Attributes.Add("style", "width:100px");
-
-                post.Controls.Add(d1);
+                tc2.Controls.Add(name);
+                tc3.Controls.Add(time);
+                tc4.Controls.Add(d);
                 d1.Controls.Add(t);
-                d1.Controls.Add(d);
-                d1.Controls.Add(lt);
+                d1.Controls.Add(t1);
+                d1.Controls.Add(t2);
+                post.Controls.Add(d1);
+                
+               
+                
+                
+                
             }
             con.Close();
         }

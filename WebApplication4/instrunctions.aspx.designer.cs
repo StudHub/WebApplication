@@ -13,21 +13,12 @@ namespace WebApplication4 {
     public partial class WebForm2 {
         
         /// <summary>
-        /// form2 control.
+        /// start control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
-        
-        /// <summary>
-        /// post control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl post;
+        protected global::System.Web.UI.WebControls.Button start;
     }
 }

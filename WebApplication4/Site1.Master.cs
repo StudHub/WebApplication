@@ -17,30 +17,40 @@ namespace WebApplication4
         
          int ncount;
         static int  y=0;
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["studhub"].ConnectionString);
+        
+        void transfer(object sender, EventArgs e)
+        {
+            ImageButton comment = sender as ImageButton;
+           
+            
+            Session["pstid"] = comment.ID;
+            Response.Redirect("comment.aspx");
+
+        }
+
+
         HtmlGenericControl s = new HtmlGenericControl("span");
         protected void Page_Load(object sender, EventArgs e)
         {
             //notification
-            
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["studhub"].ConnectionString);
             con.Open();
             if (Session["admin"].ToString() == "true")
                 ch.HRef = "Admin.aspx";
             else
                 ch.HRef = "select_test.aspx";
 
-            SqlDataAdapter s1 = new SqlDataAdapter("select mcq_id,emailid from Post_MCQ", con);
-            
-            SqlCommand sc = new SqlCommand("select notification from userr where emailid='" + Session["emailid"] + "'",con);
-            SqlDataReader rd = sc.ExecuteReader();
+            SqlDataAdapter sc = new SqlDataAdapter("select notification from userr where emailid='" + Session["emailid"] + "'",con);
+            DataTable sct = new DataTable();
+            sc.Fill(sct);
             if (HiddenField1.Value == "uncheck")
             {
                 
-                while (rd.Read())
+                for(int i=0;i<sct.Rows.Count;i++)
                 {
-                    ncount = Convert.ToInt32(rd[0]);
+                    ncount = Convert.ToInt32(sct.Rows[i][0]);
                 }
-                rd.Close();
+               
                 s.InnerText = ncount.ToString();
                 s.Attributes.Add("class", "w3-badge w3-right w3-small w3-green");
                 s.ID = "sp1";
@@ -49,11 +59,17 @@ namespace WebApplication4
             }
             else
             {
-                
-                move();
+
+                HiddenField1.Value = "uncheck";
+                SqlCommand m_remove = new SqlCommand("update Userr set notification=0 where emailid='" + Session["emailid"] + "'", con);
+
+                m_remove.ExecuteNonQuery();
             }
+            SqlDataAdapter s1 = new SqlDataAdapter("select mcq_id,emailid from Post_MCQ", con);
             DataTable dt = new DataTable();
             s1.Fill(dt);
+
+
             for (int j = dt.Rows.Count-1; j>=0; j--)
             {
                  SqlDataAdapter s2 = new SqlDataAdapter("select name,image from userr where emailid in('" + dt.Rows[j]["emailid"] + "')", con);
@@ -65,11 +81,13 @@ namespace WebApplication4
                
                 
 
-                Image nimage = new Image();
+                //Image nimage = new Image();
+                ImageButton nimage = new ImageButton();
                 nimage.ImageUrl = "/upload/" + dt1.Rows[0]["image"];
                 nimage.Width = 20;
                 nimage.Height = 20;
                 nimage.CssClass = "w3-left w3-circle w3-margin-right";
+                nimage.ID = dt.Rows[j]["mcq_id"].ToString();
                 HtmlGenericControl d = new HtmlGenericControl("div");
                 d.Attributes.Add("class", "w3-bar-item w3-button");
                 if (ncount > 0)
@@ -78,13 +96,11 @@ namespace WebApplication4
 
                     ncount--;
                 }
-                // Label l1 = new Label();
                 Label l1 = new Label();
-               
+                
                 l1.Text = dt1.Rows[0]["name"] + " has posted a mcq";
                 
-                d.Focus.
-
+                nimage.Click += new ImageClickEventHandler(transfer);
                 d.Controls.Add(nimage);
                     d.Controls.Add(l1);
                     notification.Controls.Add(d);
@@ -125,18 +141,7 @@ namespace WebApplication4
         
       
 
-        protected void move()
-        {
-           HiddenField1.Value = "uncheck";
-            SqlCommand m_remove = new SqlCommand("update Userr set notification=0 where emailid='" + Session["emailid"] + "'", con);
-             //   con.Open();
-                m_remove.ExecuteNonQuery();
-                
-               
-                con.Close();
-          
-
-        }
+       
 
        
     }

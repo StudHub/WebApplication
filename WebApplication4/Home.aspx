@@ -9,5 +9,6 @@
    <div id="post" class="active" runat="server" style="height:auto; margin-left:65px;margin-top:20px;margin-right:15px; width:90%">
        
    </div>
+    
         
 </asp:Content>

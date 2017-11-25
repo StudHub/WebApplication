@@ -32,23 +32,27 @@
     
                <div runat="server" id="div1" class="alert" style=" background-color:lightblue;width:90%;margin-left:60px ; margin-top:10px" >
                     
-                        <h2><asp:label ID="l2" runat="server" text="Question with Options
-                    " CssClass="active"   ></asp:label></h2>  
+                        <h4><b><asp:label ID="l2" runat="server" text="Question with Options" CssClass="active"   ></asp:label></b></h4>  
                     
                 </div>
            <!-- all options are also in label take <br> before it for new line-->
       <div id="comments" runat="server"  class="alert" style=" height:auto; width:90%;margin-left:60px ; background-color:#d0ece7; margin-top:10px" >
           
       
-    <asp:Label ID="Lcomment" runat="server" Text="<h3>No Comments available!!</h3>"></asp:Label>
+    <asp:Label ID="Lcomment" runat="server" Text="<h4>No Comments available!!</h4>"></asp:Label>
       </div>    
     <div id="main2" runat="server"></div>
     
           <div id="d1" class="alert" style=" width:90%;margin-left:60px ; margin-top:10px" ></div>
-    <asp:TextBox ID="comment_text" runat="server" placeholder="enter your comment" CssClass="form-control" Width="735px" Font-Size="20px" ></asp:TextBox>
-            
+    <div style="margin-left:200px">   
+        <asp:TextBox ID="comment_text" runat="server" placeholder="enter your comment"  CssClass="form-control" Width="735px" Font-Size="20px" ></asp:TextBox>
+            <br />
+         <div style="margin-left:300px">   
     <asp:Button ID="Button2" runat="server" Text="Submit" CssClass="active" BackColor="#293955" ForeColor="#ffffff" OnClick="my" />
-   </div> 
+     </div>
+         </div>
+
+        </div> 
 
     
 

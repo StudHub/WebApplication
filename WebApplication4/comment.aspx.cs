@@ -25,7 +25,7 @@ namespace WebApplication4
            
 
 //post
-            string s;
+            string s,o;
             SqlCommand cmd = new SqlCommand("select * from Post_MCQ where mcq_id=@s", con);
             cmd.Parameters.AddWithValue("@s", Session["pstid"].ToString() );
             SqlDataReader rd = cmd.ExecuteReader();
@@ -34,8 +34,17 @@ namespace WebApplication4
             while (rd.Read())
             {
                 s = rd["mcq"].ToString();
+                o = rd["options"].ToString();
                 // l2.Text = s;
-
+                if (rd["image"].ToString() != "0")
+                {
+                    Image query_image = new Image();
+                    query_image.ImageUrl = "/upload/" + rd["image"].ToString().Trim();
+                    //query_image.ImageUrl = "/upload/p.jpg"; 
+                    query_image.Width = 500;
+                    query_image.Height = 100;
+                    div1.Controls.Add(query_image);
+                }
                 char[] c = new char[s.Length];
                 int i = 0;
                 c = s.ToCharArray();
@@ -43,12 +52,39 @@ namespace WebApplication4
                 foreach (char c1 in c)
                 {
                     s1 = s1 + c1;
-                    if (i == 57)
+                    if (i == 157)
                     {
                         i = 0;
                         s1 = s1 + "<br>";
                     }
                     i++;
+                }
+                int a = 65;
+                int j = 0;
+                s = null;
+                s1 = s1 + "<br>";
+                foreach (char c2 in o)
+                {
+
+                    if (j == 110)
+                    {
+                        j = 0;
+
+                        s = s + "<br>";
+
+                    }
+                    j++;
+                    if (c2 == ':')
+                    {
+                        j = 0;
+
+                        s1 += "<br>";
+                        s1 += " option " + Convert.ToChar(a) + ":" + " " + s;
+                        s = null;
+                        a++;
+                    }
+                    else
+                        s = s + c2;
                 }
 
                 l2.Text = s1;
@@ -126,8 +162,8 @@ namespace WebApplication4
             Image img = new Image();
             img.ImageUrl = "upload/"+ imgg.Rows[0]["image"];
             img.CssClass = "img-circle";
-            img.Width = 80;
-            img.Height = 80;
+            img.Width = 40;
+            img.Height = 40;
             Label l1 = new Label();
             l1.Text = "<h3>" + imgg.Rows[0]["name"];
             Lcomment.Text = null;
@@ -140,7 +176,7 @@ namespace WebApplication4
             Label l2 = new Label();
             c1.Width = 150; //COMMENT FROM COMMENT TABLE    
 
-            l2.Text = "<h2>"+dr["comment"].ToString();
+            l2.Text = "<h4><b>"+dr["comment"].ToString();
            
             c2.Controls.Add(l2);
             main2.Controls.Add(d);
@@ -154,7 +190,7 @@ namespace WebApplication4
             cmmnt.ExecuteNonQuery();
             con.Close();
             comment_text.Text = null;
-            Response.Redirect("Comment.aspx");
+            Response.Redirect("comment.aspx");
         }
 
     }

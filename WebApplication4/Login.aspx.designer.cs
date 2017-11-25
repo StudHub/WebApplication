@@ -85,13 +85,13 @@ namespace WebApplication4 {
         protected global::System.Web.UI.WebControls.TextBox name;
         
         /// <summary>
-        /// RegularExpressionValidator1 control.
+        /// RequiredFieldValidator3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
         /// remailid control.
@@ -157,13 +157,13 @@ namespace WebApplication4 {
         protected global::System.Web.UI.WebControls.TextBox contactno;
         
         /// <summary>
-        /// RangeValidator1 control.
+        /// RegularExpressionValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
         /// male control.

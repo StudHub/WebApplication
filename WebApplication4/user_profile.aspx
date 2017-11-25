@@ -3,7 +3,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-      <span class="w3-right"><button  onclick="document.getElementById('setting').style.display='block'" class="w3-button w3-green w3-large" title="Settings"><i class="fa fa-gears"></i></button></span><br /><br />
+    
 <!--Settings Modal-->
               <div id="setting" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
@@ -118,16 +118,8 @@
               <div class="w3-center"><br>
                 <span onclick="document.getElementById('scores').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
               </div>
-                <div>
-                    <div class="w3-light-grey w3-round">
-                    <div class="w3-container w3-blue w3-round" style="width:80%">Test 1 - 80%</div>
-                    </div><br>
-                    <div class="w3-light-grey w3-round-large">
-                    <div class="w3-container w3-blue w3-round" style="width:75%">Test 2 - 75%</div>
-                    </div><br>
-                    <div class="w3-light-grey w3-round-xlarge">
-                    <div class="w3-container w3-blue w3-round" style="width:95%">Test 3 - 95%</div>
-                </div>
+                <div runat="server" id="test">
+                    
                     
                 </div>
             </div>
@@ -156,7 +148,7 @@
     
     
     <!-- Middle Column -->
-    <div class="w3-col m9" runat="server"  id="user_post" style="width:100%">      
+    <div  runat="server"  id="user_post"  style="overflow-x:scroll" >      
             
     <!-- End Middle Column -->
     </div>

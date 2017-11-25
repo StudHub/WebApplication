@@ -1,10 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="submit_test.aspx.cs" Inherits="WebApplication4.submit_test" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
- <script>
-     function disableBack() { window.history.forward() }
 
-     window.onload = disableBack();
-        </script>
    
 
 

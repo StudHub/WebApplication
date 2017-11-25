@@ -48,7 +48,7 @@
 				</ul>-->
 				
 		<div class="bottons-agileits-w3layouts">
-		<a class="page-scroll" href="#myModal2" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true">Login</a>
+		<a class="page-scroll" href="#myModal2" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Login</a>
 			<a class="page-scroll" href="#myModal3" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Register</a>
 		</div>
 			</div>
@@ -104,14 +104,14 @@
 										<h5>Register</h5>
                                             
                                            <asp:TextBox ID="name" placeholder="Name" runat="server"></asp:TextBox>
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1"  runat="server" ValidationGroup="register" ErrorMessage="RegularExpressionValidator" ControlToValidate="name"></asp:RegularExpressionValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ValidationGroup="register" ForeColor="Red" ErrorMessage=" Name is Required" ControlToValidate="name"></asp:RequiredFieldValidator>
                                             
 											<asp:TextBox ID="remailid" placeholder="Email ID" runat="server"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="register" ErrorMessage="RequiredFieldValidator" ControlToValidate="remailid"></asp:RequiredFieldValidator>
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ValidationGroup="register" ErrorMessage="RegularExpressionValidator" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="remailid"></asp:RegularExpressionValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="register" ErrorMessage="emailid is required" ForeColor="Red" ControlToValidate="remailid"></asp:RequiredFieldValidator>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ValidationGroup="register" ErrorMessage="Email-id is not valid" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="remailid"></asp:RegularExpressionValidator>
                                             
 											<asp:TextBox ID="rpassword" placeholder="Password" runat="server" TextMode="Password"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="register" ErrorMessage="RequiredFieldValidator" ControlToValidate="rpassword"></asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="register" ErrorMessage="required" ForeColor="Red" ControlToValidate="rpassword"></asp:RequiredFieldValidator>
                                             
                                             <br />
                                             Country:&nbsp
@@ -125,7 +125,7 @@
                                            </asp:DropDownList>
 
                                            <asp:TextBox ID="contactno"  placeholder="ContactNo" runat="server"></asp:TextBox>
-                                            <asp:RangeValidator ID="RangeValidator1" runat="server" ValidationGroup="register" ErrorMessage="RangeValidator" MinimumValue="0" MaximumValue="10" ControlToValidate="contactno"></asp:RangeValidator>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Minimum 10 digit required" ControlToValidate="contactno" ForeColor="Red" ValidationExpression="\d{10}"></asp:RegularExpressionValidator>
                                             <asp:RadioButton ID="male"  Checked="true" GroupName="gender" runat="server" />&nbsp Male
 
                                             <asp:RadioButton ID="female" GroupName="gender" runat="server" />&nbsp Female

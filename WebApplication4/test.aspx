@@ -74,8 +74,8 @@
                
 
                             <asp:Image ID="Image1" runat="server" />
-                        <h2><asp:label ID="l1" runat="server" text="Question with Options
-                    " CssClass="active"   ></asp:label></h2>  
+                        <h3><asp:label ID="l1" runat="server" text="Question with Options
+                    " CssClass="active"   ></asp:label></h3>  
                     
                 </div>
                        <div id="Div1" runat="server">
@@ -94,8 +94,8 @@
              <div id="query" class="tab-pane fade in active" style="padding-left: 195px;">
                        <div runat="server" id="div8" class="alert" style=" background-color:lightblue;width:70%; ; margin-top:10px" >
                     <asp:Image ID="Image2" runat="server" />
-                        <h2><asp:label ID="l2" runat="server" text="Question with Options
-                    " CssClass="active"   ></asp:label></h2>  
+                        <h3><asp:label ID="l2" runat="server" text="Question with Options
+                    " CssClass="active"   ></asp:label></h3>  
                     
                 </div>
                        <div id="Div2" runat="server">
@@ -115,8 +115,8 @@
              <div id="query" class="tab-pane fade in active" style="padding-left: 195px;">
                        <div runat="server" id="div9" class="alert" style=" background-color:lightblue;width:70%; ; margin-top:10px" >
                     <asp:Image ID="Image3" runat="server" />
-                        <h2><asp:label ID="l3" runat="server" text="Question with Options
-                    " CssClass="active"   ></asp:label></h2>  
+                        <h3><asp:label ID="l3" runat="server" text="Question with Options
+                    " CssClass="active"   ></asp:label></h3>  
                     
                 </div>
                        <div id="Div3" runat="server">
@@ -136,8 +136,8 @@
              <div id="query" class="tab-pane fade in active" style="padding-left: 195px;">
                        <div runat="server" id="div10" class="alert" style=" background-color:lightblue;width:70%; ; margin-top:10px" >
                     <asp:Image ID="Image4" runat="server" />
-                        <h2><asp:label ID="l4" runat="server" text="Question with Options
-                    " CssClass="active"   ></asp:label></h2>  
+                        <h3><asp:label ID="l4" runat="server" text="Question with Options
+                    " CssClass="active"   ></asp:label></h3>  
                     
                 </div>
                        <div id="Div4" runat="server">
@@ -157,8 +157,8 @@
              <div id="query" class="tab-pane fade in active" style="padding-left: 195px;">
                        <div runat="server" id="div11" class="alert" style=" background-color:lightblue;width:70%; ; margin-top:10px" >
                     <asp:Image ID="Image5" runat="server" />
-                        <h2><asp:label ID="l5" runat="server" text="Question with Options
-                    " CssClass="active"   ></asp:label></h2>  
+                        <h3><asp:label ID="l5" runat="server" text="Question with Options
+                    " CssClass="active"   ></asp:label></h3>  
                     
                 </div>
                        <div id="Div5" runat="server">
@@ -178,8 +178,8 @@
              <div id="query" class="tab-pane fade in active" style="padding-left: 195px;">
                        <div runat="server" id="div12" class="alert" style=" background-color:lightblue;width:70%; ; margin-top:10px" >
                     <asp:Image ID="Image6" runat="server" />
-                        <h2><asp:label ID="l6" runat="server" text="Question with Options
-                    " CssClass="active"   ></asp:label></h2>  
+                        <h3><asp:label ID="l6" runat="server" text="Question with Options
+                    " CssClass="active"   ></asp:label></h3>  
                     
                 </div>
                        <div id="Div6" runat="server">
@@ -199,8 +199,8 @@
              <div id="query" class="tab-pane fade in active" style="padding-left: 195px;">
                        <div runat="server" id="div13" class="alert" style=" background-color:lightblue;width:70%; ; margin-top:10px" >
                     <asp:Image ID="Image7" runat="server" />
-                        <h2><asp:label ID="l7" runat="server" text="Question with Options
-                    " CssClass="active"   ></asp:label></h2>  
+                        <h3><asp:label ID="l7" runat="server" text="Question with Options
+                    " CssClass="active"   ></asp:label></h3>  
                     
                 </div>
                        <div id="Div14" runat="server">
@@ -220,7 +220,7 @@
              <div id="query" class="tab-pane fade in active" style="padding-left: 195px;">
                        <div runat="server" id="div15" class="alert" style=" background-color:lightblue;width:70%; ; margin-top:10px" >
                     <asp:Image ID="Image8" runat="server" />
-                        <h2><asp:label ID="l8" runat="server" text="Question with Options" CssClass="active"   ></asp:label></h2>  
+                        <h3><asp:label ID="l8" runat="server" text="Question with Options" CssClass="active"   ></asp:label></h3>  
                     
                 </div>
                        <div id="Div16" runat="server">
@@ -240,7 +240,7 @@
              <div id="query" class="tab-pane fade in active" style="padding-left: 195px;">
                        <div runat="server" id="div17" class="alert" style=" background-color:lightblue;width:70%; ; margin-top:10px" >
                     <asp:Image ID="Image9" runat="server" />
-                        <h2><asp:label ID="l9" runat="server" text="Question with Options" CssClass="active"   ></asp:label></h2>  
+                        <h3><asp:label ID="l9" runat="server" text="Question with Options" CssClass="active"   ></asp:label></h3>  
                     
                 </div>
                        <div id="Div18" runat="server">
@@ -260,8 +260,8 @@
              <div id="query" class="tab-pane fade in active" style="padding-left: 195px;">
                        <div runat="server" id="div19" class="alert" style=" background-color:lightblue;width:70%; ; margin-top:10px" >
                     <asp:Image ID="Image10" runat="server" />
-                        <h2><asp:label ID="l10" runat="server" text="Question with Options
-                    " CssClass="active"   ></asp:label></h2>  
+                        <h3><asp:label ID="l10" runat="server" text="Question with Options
+                    " CssClass="active"   ></asp:label></h3>  
                     
                 </div>
                        <div id="Div20" runat="server">

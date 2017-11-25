@@ -96,13 +96,13 @@ namespace WebApplication4
 
                   
                     answers[i] = tst_que.Rows[randomNumbers[i]]["answers"].ToString();
-                    lal.Text =randomNumbers[i]+ tst_que.Rows[randomNumbers[i]]["question"].ToString();
+                    lal.Text ="<b>"+tst_que.Rows[randomNumbers[i]]["question"].ToString();
                     
                     SqlCommand s1 = new SqlCommand("insert into Test_details(tid,question_id) values(@tid,@question_id)",con);
                     s1.Parameters.AddWithValue("@tid", Convert.ToInt32(Session["tid"]));
                     s1.Parameters.AddWithValue("@question_id", Convert.ToInt32(tst_que.Rows[randomNumbers[i]]["question_id"]));
                     s1.ExecuteNonQuery();
-                    l1.Text = list_checkbox.Count.ToString();
+                    
                     SqlDataAdapter option_fetch = new SqlDataAdapter("select options from Questions where question_id='"+tst_que.Rows[randomNumbers[i]]["question_id"].ToString()+"'", con);
                     DataTable option_dt = new DataTable();
                     option_fetch.Fill(option_dt);
@@ -391,7 +391,7 @@ namespace WebApplication4
             else
             {
                 Timer1.Enabled = true;
-                Response.Redirect("Home.aspx");
+                Button16_Click( sender,  e);
 
             }
         }

@@ -155,7 +155,7 @@ function RemoveTextBox(div) {
      <textarea id="TextArea2" runat="server" rows="10" class="tab-pane" placeholder="Enter your question or query here" role="toolbar" style="width: 670px;"></textarea>
       <asp:FileUpload ID="FileUpload1" runat="server" />
      
-      <asp:Label ID="Label1" runat="server" Text="Label" visible="false"></asp:Label>
+      <asp:Label ID="Label1" runat="server" Text="" ForeColor="Red" visible="false"></asp:Label>
       
         <!--<div class="input-group" style="margin-top:2%">
             

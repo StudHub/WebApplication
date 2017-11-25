@@ -29,13 +29,13 @@ namespace WebApplication4
         protected void Button1_Click(object sender, EventArgs e)
         {
             Session["sub_id"] = 1;
-            sc = new SqlCommand("insert into Test(emailid,s_id,totalM,obtainM,totalQ,attemptQ) values('" + Session["emailid"] + "','" + Session["sub_id"] + "',0,0,0,0)", con);
+            sc = new SqlCommand("insert into Test(emailid,s_id,totalM,obtainM,totalQ,attemptQ,t_time) values('" + Session["emailid"] + "','" + Session["sub_id"] + "',0,0,0,0,@t_time)", con);
+            sc.Parameters.AddWithValue("@t_time", DateTime.Now.ToString());
             sc.ExecuteNonQuery();
             scc = new SqlCommand("select max(tid) from Test where emailid='" + Session["emailid"] + "'and s_id='" + Session["sub_id"] + "'", con);
             Session["tid"] =scc.ExecuteScalar();
 
-            ClientScript.RegisterStartupScript(this.Page.GetType(), "", "window.open('test.aspx');", true);
-
+            Response.Redirect("instrunctions.aspx");
 
         }
 
@@ -43,45 +43,47 @@ namespace WebApplication4
         {
 
             Session["sub_id"] = 2;
-            sc = new SqlCommand("insert into Test(emailid,s_id,totalM,obtainM,totalQ,ansQ) values('" + Session["emailid"] + "','" + Session["sub_id"] + "',0,0,0,0)", con);
+            sc = new SqlCommand("insert into Test(emailid,s_id,totalM,obtainM,totalQ,attemptQ,t_time) values('" + Session["emailid"] + "','" + Session["sub_id"] + "',0,0,0,0,@t_time)", con);
+            sc.Parameters.AddWithValue("@t_time", DateTime.Now.ToString());
             sc.ExecuteNonQuery();
             scc = new SqlCommand("select max(tid) from Test where emailid='" + Session["emailid"] + "'and s_id='" + Session["sub_id"] + "'", con);
             Session["tid"] = scc.ExecuteScalar();
-
-            ClientScript.RegisterStartupScript(this.Page.GetType(), "", "window.open('test.aspx');", true);
-
+            Response.Redirect("instrunctions.aspx");
         }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
             Session["sub_id"] = 3;
-            sc = new SqlCommand("insert into Test(emailid,s_id,totalM,obtainM,totalQ,ansQ) values('" + Session["emailid"] + "','" + Session["sub_id"] + "',0,0,0,0)", con);
+            sc = new SqlCommand("insert into Test(emailid,s_id,totalM,obtainM,totalQ,attemptQ,t_time) values('" + Session["emailid"] + "','" + Session["sub_id"] + "',0,0,0,0,@t_time)", con);
+            sc.Parameters.AddWithValue("@t_time", DateTime.Now.ToString());
             sc.ExecuteNonQuery();
             scc = new SqlCommand("select max(tid) from Test where emailid='" + Session["emailid"] + "'and s_id='" + Session["sub_id"] + "'", con);
             Session["tid"] = scc.ExecuteScalar();
-            ClientScript.RegisterStartupScript(this.Page.GetType(), "", "window.open('test.aspx');", true);
+            Response.Redirect("instrunctions.aspx");
 
         }
 
         protected void Button4_Click(object sender, EventArgs e)
         {
             Session["sub_id"] = 4;
-            sc = new SqlCommand("insert into Test(emailid,s_id,totalM,obtainM,totalQ,ansQ) values('" + Session["emailid"] + "','" + Session["sub_id"] + "',0,0,0,0)", con);
+            sc = new SqlCommand("insert into Test(emailid,s_id,totalM,obtainM,totalQ,attemptQ,t_time) values('" + Session["emailid"] + "','" + Session["sub_id"] + "',0,0,0,0,@t_time)", con);
+            sc.Parameters.AddWithValue("@t_time", DateTime.Now.ToString());
             sc.ExecuteNonQuery();
             scc = new SqlCommand("select max(tid) from Test where emailid='" + Session["emailid"] + "'and s_id='" + Session["sub_id"] + "'", con);
             Session["tid"] = scc.ExecuteScalar();
-            ClientScript.RegisterStartupScript(this.Page.GetType(), "", "window.open('test.aspx');", true);
+            Response.Redirect("instrunctions.aspx");
 
         }
 
         protected void Button5_Click(object sender, EventArgs e)
         {
             Session["sub_id"] = 5;
-            sc = new SqlCommand("insert into Test(emailid,s_id,totalM,obtainM,totalQ,attemptQ) values('" + Session["emailid"] + "','" + Session["sub_id"] + "',0,0,0,0)", con);
+            sc = new SqlCommand("insert into Test(emailid,s_id,totalM,obtainM,totalQ,attemptQ,t_time) values('" + Session["emailid"] + "','" + Session["sub_id"] + "',0,0,0,0,@t_time)", con);
+            sc.Parameters.AddWithValue("@t_time", DateTime.Now.ToString());
             sc.ExecuteNonQuery();
             scc = new SqlCommand("select max(tid) from Test where emailid='" + Session["emailid"] + "'and s_id='" + Session["sub_id"] + "'", con);
             Session["tid"] = scc.ExecuteScalar();
-            ClientScript.RegisterStartupScript(this.Page.GetType(), "", "window.open('test.aspx');", true);
+            Response.Redirect("instrunctions.aspx");
 
         }
     }

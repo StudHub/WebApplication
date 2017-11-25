@@ -36,7 +36,20 @@ namespace WebApplication4
                 interest.Controls.Add(s);
             }
 
-
+            SqlDataAdapter stest = new SqlDataAdapter("select * from Test where emailid='" + Session["emailid"] + "'", con);
+            DataTable dtest = new DataTable();
+            stest.Fill(dtest);
+            int k = dtest.Rows.Count;
+            for(int j = 0; j < dtest.Rows.Count;j++)
+            {
+                SqlDataAdapter subid = new SqlDataAdapter("select s_name from subjects where s_id='" + dtest.Rows[k-1]["s_id"].ToString() + "'", con);
+                DataTable dsubid = new DataTable();
+                subid.Fill(dsubid);
+                Label l = new Label();
+                l.Text = "<b>Test attended subject: " + dsubid.Rows[0]["s_name"].ToString()+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date: " + dtest.Rows[k - 1]["t_time"].ToString()+"<br>"; 
+                test.Controls.Add(l);
+                k--;
+            }
 
             SqlDataAdapter s1 = new SqlDataAdapter("select mcq,image,mcq_id from Post_MCQ where emailid='"+Session["emailid"]+"'", con);
             
@@ -61,20 +74,21 @@ namespace WebApplication4
             {
                 HtmlGenericControl di = new HtmlGenericControl("div");
                 // d.ID =Convert.ToString(i);
-                di.Attributes.Add("style", "height:auto;width:100%;background-color:white;margin-top:20px;");
+                di.Attributes.Add("style", "height:auto;width:auto;margin-top:2%;background-color:white;");
                 HtmlGenericControl dii = new HtmlGenericControl("div");
+                
                 // d.ID =Convert.ToString(i);
                 dii.Attributes.Add("style", "height:auto;width:75%;background-color:white;margin-top:10px;margin-left:10%");
 
                 Label l = new Label();
-
-
-
+                
+                
+                
                 //if  query image is present
                 if (dt.Rows[i]["image"].ToString() != "0")
                 {
                     Image query_image = new Image();
-                    query_image.ImageUrl = "/upload/" + dt.Rows[i]["image"].ToString();
+                    query_image.ImageUrl = "/upload/" + dt.Rows[i]["image"].ToString().Trim();
                     query_image.Width = 500;
                     query_image.Height = 100;
                     dii.Controls.Add(query_image);
@@ -86,7 +100,7 @@ namespace WebApplication4
                 DataTable optiont = new DataTable();
                 option.Fill(optiont);
                 
-                string options = optiont.Rows[0]["options"].ToString();
+                string options = optiont.Rows[0]["options"].ToString().Trim();
                 //rearrange question in division
                 string p = pst[i];
                 char[] c = new char[p.Length];
@@ -138,6 +152,7 @@ namespace WebApplication4
                      a++;
                  }*/
                 l.Text = "<b>" + x;
+                l.ForeColor = System.Drawing.Color.DarkBlue;
                 dii.Controls.Add(l);
                 di.Controls.Add(dii);
                 user_post.Controls.Add(di);
